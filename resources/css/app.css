@@ -1,0 +1,30 @@
+@import 'micromodal';
+@import 'swiper';
+@import 'style';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.guest-logo {
+    width: 300px;
+}
+.logo{
+    width: 180px;
+    margin-top: 10px;
+}
+.imgarea{
+    width: 200px;
+    height: 200px;
+
+}
+.imgarea img{
+    border-radius: 50%;
+}
+.my_page_img {
+    margin-left: 20%;
+    margin-bottom: 30px;
+}
+.my_page {
+    margin-left: 20%;
+
+}
