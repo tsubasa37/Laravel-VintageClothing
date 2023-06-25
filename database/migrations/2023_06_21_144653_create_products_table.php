@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('information');
+            $table->string('image');
             $table->unsignedInteger('price');
             $table->boolean('is_selling');
             $table->integer('sort_order')->nullable();

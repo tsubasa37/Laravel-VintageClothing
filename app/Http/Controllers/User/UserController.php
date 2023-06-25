@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use InterventionImage;
+use App\Services\ImageService;
 
 class UserController extends Controller
 {
@@ -21,9 +23,17 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
+
+        $imageFile = $request->image; //一時保存
+        if(!is_null($imageFile) && $imageFile->isValid() ){
+            $fileNameToStore = ImageService::upload($imageFile, 'gazou');
+        }
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        if( !is_null($imageFile) && $imageFile->isValid()){
+            $user->image = $fileNameToStore;
+        }
         $user->save();
 
         return redirect()

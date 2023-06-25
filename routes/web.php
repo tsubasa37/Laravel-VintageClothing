@@ -42,6 +42,7 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
 
 Route::middleware('auth:users')->group(function () {
     Route::get('profile.index', [UserController::class, 'index'])->name('profile.index');
+    Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

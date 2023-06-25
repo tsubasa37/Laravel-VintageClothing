@@ -9,12 +9,12 @@
 <div class="imgarea ">
     <label>
         <span class="mypage-imgfile">
-        <input type="file" name="image" class="form" style="display:none" accept="image/*">
+            <input type="file" id="image" name="image" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             <div class="imgfile">
-                @if(empty($filename))
+                @if(empty($image))
                     <img src="{{ asset('images/noimage.png') }}" alt="">
                 @else
-                    <img src="{{ asset() }}" alt="">
+                    <img src="" alt="">
                 @endif
             </div>
         </span>

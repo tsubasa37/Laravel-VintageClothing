@@ -5,6 +5,9 @@
     if($type === 'products'){
         $path = 'storage/products/';
     }
+    if($type === 'mypage'){
+        $path = 'storage/gazou/';
+    }
 @endphp
 
 <div>
