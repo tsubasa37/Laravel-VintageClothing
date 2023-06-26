@@ -36,7 +36,15 @@
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="image" class="leading-7 text-sm text-gray-600">画像</label>
-                                    <input type="file" id="image" name="image" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <div>
+                                        @if(empty($shop->filename))
+                                        <input type="file" name="image" class="form" accept="image/*" onchange="previewImage(this);">
+                                            <img src="{{ asset('images/no_image.jpg') }}" alt="" id="preview">
+                                        @else
+                                        <input type="file" name="image" class="form" accept="image/*" onchange="previewImage(this);">
+                                            <img src="{{ asset('storage/shops/' . $shop->filename) }}" alt="" id="preview">
+                                        @endif
+                                    </div>
                                     <x-input-error :messages="$errors->get('image')" class="mt-2" />
                                 </div>
                             </div>
@@ -60,4 +68,14 @@
             </div>
         </div>
     </div>
+    <script>
+        function previewImage(obj)
+        {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                document.getElementById('preview').src = fileReader.result;
+        });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+    </script>
 </x-app-layout>

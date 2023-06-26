@@ -11,8 +11,11 @@ use App\Services\ImageService;
 
 class UserController extends Controller
 {
+    public function index(){
+        return view('user.index');
+    }
 
-    public function index()
+    public function edit()
     {
         $user = User::findOrFail(Auth::id());
         // dd($user);

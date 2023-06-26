@@ -14,8 +14,7 @@
                     <div class="my_page">
                         <div class="my_page_img">
                             <span>
-                                <input type="file" name="image" class="form" accept="image/*">
-                                <x-thumbnail :filename="$user->image " type="mypage" />
+                                <x-mypage-image :filename="$user->image " type="mypage" />
                             </span>
                         </div>
                         <div class="max-w-xl">

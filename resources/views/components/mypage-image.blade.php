@@ -1,46 +1,29 @@
-{{-- <div>
-    <input type="file" id="image" name="image">
+
+@php
+    if($type === 'mypage'){
+        $path = 'storage/gazou/';
+    }
+@endphp
+
+<div class="imgfile">
     @if(empty($filename))
-        <img src="{{ asset('images/noimage.png') }}" alt="">
+    <input type="file" name="image" class="form" accept="image/*" onchange="previewImage(this);">
+        <img src="{{ asset('images/no_image.jpg') }}" alt="" id="preview">
     @else
-        <img src="{{ asset() }}" alt="">
+    <input type="file" name="image" class="form" accept="image/*" onchange="previewImage(this);">
+        <img src="{{ asset($path . $filename) }}" alt="" id="preview">
     @endif
-</div> --}}
-<div class="imgarea ">
-    <label>
-        <span class="mypage-imgfile">
-            <input type="file" id="image" name="image" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-            <div class="imgfile">
-                @if(empty($image))
-                    <img src="{{ asset('images/noimage.png') }}" alt="">
-                @else
-                    <img src="" alt="">
-                @endif
-            </div>
-        </span>
-    </label>
 </div>
+
+
 <script>
-    $(function () {
-        $('input[type=file]').change(function () {
-            var file = $(this).prop('files')[0];
+    function previewImage(obj)
+    {
 
-            // 画像以外は処理を停止
-            if (!file.type.match('image.*')) {
-            // クリア
-            $(this).val('');
-            $('.imgfile').html('');
-            return;
-            }
-
-            // 画像表示
-            var reader = new FileReader();
-            reader.onload = function () {
-            var img_src = $('<img>').attr('src', reader.result);
-            $('.imgfile').html(img_src);
-            $('.imgarea').removeClass('noimage');
-            }
-            reader.readAsDataURL(file);
-        });
-    });
+        var fileReader = new FileReader();
+        fileReader.onload = (function() {
+            document.getElementById('preview').src = fileReader.result;
+	});
+	    fileReader.readAsDataURL(obj.files[0]);
+    }
 </script>

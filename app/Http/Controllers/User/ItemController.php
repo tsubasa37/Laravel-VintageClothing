@@ -43,7 +43,7 @@ class ItemController extends Controller
         ->paginate($request->pagination ?? '20');
 
 
-        return view('user.index',
+        return view('user.items.index',
         compact('products','categories'));
     }
 

@@ -17,13 +17,13 @@ use App\Http\Controllers\User\UserController ;
 |
 */
 
-Route::get('/', function () {
-    return view('user.welcome');
-});
+// Route::get('/', function () {
+//     return view('user.welcome');
+// });
 
 Route::middleware('auth:users')->group(function(){
-        Route::get('/', [ItemController::class,'index'])->name('items.index');
-        Route::get('show/{item}',[ItemController::class, 'show'])->name('items.show');
+        Route::get('/items', [ItemController::class,'index'])->name('items.index');
+        Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
 });
 
 Route::prefix('cart')->middleware('auth:users')->group(function(){
@@ -41,7 +41,8 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
 // })->middleware(['auth:users', 'verified'])->name('dashboard');
 
 Route::middleware('auth:users')->group(function () {
-    Route::get('profile.index', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/', [UserController::class,'index'])->name('index');
+    Route::get('profile.edit', [UserController::class, 'edit'])->name('profile.index');
     Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
