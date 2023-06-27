@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Http\Requests\UploadImageRequest;
 use App\Services\ImageService;
+use App\Services\shopImageService;
 
 class ShopController extends Controller
 {
@@ -56,19 +57,27 @@ class ShopController extends Controller
             'is_selling' => ['required'],
         ]);
 
-        $imageFile = $request->image; //一時保存
-        if(!is_null($imageFile) && $imageFile->isValid() ){
-            $fileNameToStore = ImageService::upload($imageFile, 'shops');
-        }
+        // dd( $request->image2 );
+        $imageFile1 = $request->image1; //一時保存
+        $imageFile2 = $request->image2; //一時保存
+        $imageFile3 = $request->image3; //一時保存
+        $image1 = shopImageService::upload1($imageFile1, 'shops');
+        $image2 = shopImageService::upload2($imageFile2, 'shops');
+        $image3 = shopImageService::upload3($imageFile3, 'shops');
+        // dd($image3);
+        // }
 
         $shop = Shop::findOrFail($id);
         $shop->name = $request->name;
         $shop->information = $request->information;
+        $shop->image1 = $image1;
+        $shop->image2 = $image2;
+        $shop->image3 = $image3;
         $shop->is_selling = $request->is_selling;
 
-        if( !is_null($imageFile) && $imageFile->isValid()){
-            $shop->filename = $fileNameToStore;
-        }
+        // if( !is_null($imageFile) && $imageFile->isValid()){
+        //     $shop->filename = $fileNameToStore;
+        // }
         $shop->save();
 
         return redirect()->route('owner.shops.index')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Image;
 use App\Models\Product;
 use App\Http\Requests\UploadImageRequest;
@@ -54,7 +55,9 @@ class ImageController extends Controller
      */
     public function store(UploadImageRequest $request)
     {
+
         $imageFiles = $request->file('files'); //配列でファイルを取得
+        // dd($imageFiles);
         if(!is_null($imageFiles)){
             foreach($imageFiles as $imageFile){
                 $fileNameToStore = ImageService::upload($imageFile, 'products');

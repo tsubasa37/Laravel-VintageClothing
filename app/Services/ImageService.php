@@ -10,6 +10,7 @@ Class ImageService
 {
     public static function upload($imageFile, $folderName)
     {
+
         if(is_array($imageFile)){
             $file = $imageFile['image']; // 配列なので[ʻkeyʼ] で取得
         } else {

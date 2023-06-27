@@ -19,7 +19,9 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->string('name');
             $table->text('information');
-            $table->string('filename');
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
             $table->boolean('is_selling');
             $table->timestamps();
         });
