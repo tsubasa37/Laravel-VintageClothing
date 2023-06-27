@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // ImageSeeder::class,
             CategorySeeder::class,
             UserSeeder::class,
+            ShopCategorySeeder::class,
         ]);
         // Product::factory(100)->create();
         // Stock::factory(100)->create();

@@ -50,7 +50,8 @@ class ShopController extends Controller
 
     public function update(UploadImageRequest $request, string $id)
     {
-
+        $shop = Shop::findOrFail($id);
+        // dd($shop->image1);
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'information' => ['required', 'string', 'max:1000'],
@@ -61,23 +62,35 @@ class ShopController extends Controller
         $imageFile1 = $request->image1; //一時保存
         $imageFile2 = $request->image2; //一時保存
         $imageFile3 = $request->image3; //一時保存
-        $image1 = shopImageService::upload1($imageFile1, 'shops');
-        $image2 = shopImageService::upload2($imageFile2, 'shops');
-        $image3 = shopImageService::upload3($imageFile3, 'shops');
+        if(!is_null($imageFile1) && $imageFile1->isValid() ){
+            Storage::delete('public/shops/'.$shop->image1);
+            $image1 = shopImageService::upload1($imageFile1, 'shops');
+        }
+        if(!is_null($imageFile2) && $imageFile2->isValid() ){
+            Storage::delete('public/shops/'.$shop->image2);
+            $image2 = shopImageService::upload2($imageFile2, 'shops');
+        }
+        if(!is_null($imageFile3) && $imageFile3->isValid() ){
+            Storage::delete('public/shops/'.$shop->image3);
+            $image3 = shopImageService::upload3($imageFile3, 'shops');
+        }
         // dd($image3);
         // }
 
         $shop = Shop::findOrFail($id);
         $shop->name = $request->name;
         $shop->information = $request->information;
-        $shop->image1 = $image1;
-        $shop->image2 = $image2;
-        $shop->image3 = $image3;
         $shop->is_selling = $request->is_selling;
 
-        // if( !is_null($imageFile) && $imageFile->isValid()){
-        //     $shop->filename = $fileNameToStore;
-        // }
+        if( !is_null($imageFile1) && $imageFile1->isValid()){
+            $shop->image1 = $image1;
+        }
+        if( !is_null($imageFile2) && $imageFile2->isValid()){
+            $shop->image2 = $image2;
+        }
+        if( !is_null($imageFile3) && $imageFile3->isValid()){
+            $shop->image3 = $image3;
+        }
         $shop->save();
 
         return redirect()->route('owner.shops.index')

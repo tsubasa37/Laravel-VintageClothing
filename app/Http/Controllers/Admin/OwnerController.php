@@ -60,8 +60,10 @@ class OwnerController extends Controller
                     'owner_id' => $owner->id,
                     'name' => '店名を入力してください',
                     'information' => '',
-                    'filename' => '',
-                    'is_selling' => true
+                    'image1' => '',
+                    'image2' => '',
+                    'image3' => '',
+                    'is_selling' => 0,
                 ]);
             }, 2);
         }catch(Throwable $e){
