@@ -54,6 +54,7 @@
                     </div>
                 </div>
             </div>
+            <a href="{{ route('user.questions.index') }}" class="back-to-top js-to-top"><span>戻る</span><span>＜＜</span></a>
         </div>
     </div>
     </x-app-layout>

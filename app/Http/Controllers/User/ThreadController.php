@@ -59,7 +59,7 @@ class ThreadController extends Controller
     public function show(string $id)
     {
         $thread = Thread::find($id);
-        $thread->comments = Comment::orderBy('created_at','desc')->paginate(5);
+        $thread->comments = Comment::orderBy('created_at','desc')->paginate(3);
         // dd($thread->comments);
         // $comments = $thread->comments;
         // $comments->orderBy('created_at', 'DESC');
