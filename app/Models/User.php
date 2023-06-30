@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Product;
+use App\Models\Thread;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -48,4 +50,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class, 'carts')
         ->withPivot(['id', 'quantity']);
     }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

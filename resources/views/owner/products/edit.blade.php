@@ -18,21 +18,21 @@
                                 <div class="relative">
                                     <label for="name" class="leading-7 text-sm text-gray-600">商品名※必須</label>
                                     <input type="text" id="name" name="name" value="{{ $product->name }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="information" class="leading-7 text-sm text-gray-600">商品情報※必須</label>
                                     <textarea id="information" name="information" required rows="10" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ $product->information }}</textarea>
-                                    <x-input-error :messages="$errors->get('information ')" class="mt-2" />
+
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="price" class="leading-7 text-sm text-gray-600"> 価格※必須</label>
                                     <input type="number" id="price" name="price" value="{{ $product->price }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                    <x-input-error :messages="$errors->get('price')" class="mt-2" />
+
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
@@ -49,7 +49,7 @@
                                     <div class="w-full bg-gray-100 bg-opacity-50 rounded text-base outline-none text-gray-700 py-1 px-3 leading-8">
                                         {{ $quantity }}
                                     </div>
-                                    <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
+
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
@@ -67,7 +67,7 @@
                                     <label for="quantity" class="leading-7 text-sm text-gray-600">数量※必須</label>
                                     <input type="number" id="quantity" name="quantity" value="0" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     <span calss="text-sm">0~99の範囲で入力してください</span>
-                                    <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
+
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
@@ -95,9 +95,9 @@
                                 </div>
                             </div>
                             <x-select-image :images="$images" currentId="{{$product->image1}}" currentImage="{{$product->imageFirst->filename ??''}}" name="image1" />
-                            <x-select-image :images="$images" currentId="{{$product->image2}}" currentImage="{{$product->imageSecond->filename ??''}}" name="image2" />
-                            <x-select-image :images="$images" currentId="{{$product->image3}}" currentImage="{{$product->imageThird->filename ??''}}" name="image3" />
-                            <x-select-image :images="$images" currentId="{{$product->image4}}" currentImage="{{$product->imageFourth->filename ??''}}" name="image4" />
+                                <x-select-image :images="$images" currentId="{{$product->image2}}" currentImage="{{$product->imageSecond->filename ??''}}" name="image2" />
+                                <x-select-image :images="$images" currentId="{{$product->image3}}" currentImage="{{$product->imageThird->filename ??''}}" name="image3" />
+                                <x-select-image :images="$images" currentId="{{$product->image4}}" currentImage="{{$product->imageFourth->filename ??''}}" name="image4" />
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div>

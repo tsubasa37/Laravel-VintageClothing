@@ -1,0 +1,84 @@
+
+#box2 {
+    margin-left: 2%;
+}
+#box2 p{
+    margin-bottom: 10px;
+}
+
+#area {
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+}
+#write {
+    margin-left: 50px;
+    width: 700px;
+}
+
+#box {
+    width: 530px;
+    height: 400px;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 70px;
+    border: solid 1px;
+}
+
+.tag {
+    display:flex;
+    margin-left: 3%;
+    background-color: 	#f5f5f5ba;
+
+}
+.tag li {
+    margin: 7px;
+    margin-right: 20px;
+}
+.tag li:last-child {
+    margin-right: 0;
+}
+
+b {
+    font-weight: bold;
+}
+span.red {
+    color: red;
+
+}
+
+span.blue {
+    color: blue;
+}
+
+span.yellow {
+    color: rgb(240, 240, 4);
+}
+span.big {
+    font-size: 30px;
+}
+
+span.Required {
+    color:red;
+    font-size: 15px;
+    margin-left: 5px;
+    font-weight: lighter;
+}
+
+
+.insertString {
+    display: inline-block;
+    margin: 4px 2px;
+    font-size: 14px;
+    padding: 0 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #eee;
+    background: linear-gradient(#fff, #eee);
+}
+.insertString:hover {
+    cursor: pointer;
+    background: linear-gradient(#eee, #fff);
+}

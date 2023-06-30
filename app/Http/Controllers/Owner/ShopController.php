@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
+use App\Models\ShopCategory;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Http\Requests\UploadImageRequest;
@@ -44,6 +45,7 @@ class ShopController extends Controller
     public function edit(string $id)
     {
         $shop = Shop::findOrFail($id);
+        // $shopCategories = ShopCategory::all();
         return view('owner.shops.edit', compact('shop'));
 
     }
@@ -55,6 +57,11 @@ class ShopController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'information' => ['required', 'string', 'max:1000'],
+            'phone' => ['required','numeric','digits_between:10,11','regex:/^[0-9]+$/'],
+            'prefecture' => ['required', 'string', 'max:50'],
+            'City' => ['required', 'string', 'max:50'],
+            'address' => ['required', 'string', 'max:50'],
+            'businessHours' => ['required', 'string', 'max:50'],
             'is_selling' => ['required'],
         ]);
 
@@ -80,6 +87,17 @@ class ShopController extends Controller
         $shop = Shop::findOrFail($id);
         $shop->name = $request->name;
         $shop->information = $request->information;
+        $shop->phone = $request->phone;
+        $shop->station = $request->station;
+        $shop->prefecture = $request->prefecture;
+        $shop->City = $request->City;
+        $shop->address = $request->address;
+        $shop->businessHours = $request->businessHours;
+        $shop->regularHoliday = $request->regularHoliday;
+        $shop->home_page = $request->home_page;
+        $shop->twitter = $request->twitter;
+        $shop->Instagram = $request->Instagram;
+        $shop->Facebook = $request->Facebook;
         $shop->is_selling = $request->is_selling;
 
         if( !is_null($imageFile1) && $imageFile1->isValid()){

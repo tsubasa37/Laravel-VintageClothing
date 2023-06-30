@@ -18,12 +18,12 @@ class ProductSeeder extends Seeder
             [
                 'shop_id' => 1,
                 'secondary_category_id' => 1,
-                'image1' => 1,
+                'image1' => '',
             ],
             [
                 'shop_id' => 1,
                 'secondary_category_id' => 2,
-                'image1' => 2,
+                'image1' => '',
             ],
             [
                 'shop_id' => 1,

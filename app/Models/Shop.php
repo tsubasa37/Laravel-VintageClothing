@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Owner;
 use App\Models\Product;
+use App\Models\ShopCategory;
 
 
 class Shop extends Model
@@ -16,7 +17,20 @@ class Shop extends Model
         'owner_id',
         'name',
         'information',
-        'filename',
+        'phone',
+        'prefecture',
+        'City',
+        'address',
+        'businessHours',
+        // 'image1',
+        // 'image2',
+        // 'image3',
+        'station',
+        'regularHoliday',
+        'home_page',
+        'twitter',
+        'Instagram',
+        'Facebook',
         'is_selling',
     ];
 
@@ -27,5 +41,9 @@ class Shop extends Model
     public function product()
     {
         return $this->hasMany(Product::class);
+    }
+    public function shopCategory()
+    {
+        return $this->belongsToMany(ShopCategory::class);
     }
 }

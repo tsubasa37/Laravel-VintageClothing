@@ -17,12 +17,23 @@ return new class extends Migration
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->string('name');
-            $table->text('information');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->boolean('is_selling');
+            $table->string('name')->nullable();
+            $table->text('information')->nullable();
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('prefecture')->nullable();
+            $table->text('City')->nullable();
+            $table->text('address')->nullable();
+            $table->string('businessHours')->nullable();
+            $table->string('station')->nullable();
+            $table->string('regularHoliday')->nullable();
+            $table->string('home_page')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('Instagram')->nullable();
+            $table->string('Facebook')->nullable();
+            $table->boolean('is_selling')->nullable();
             $table->timestamps();
         });
     }

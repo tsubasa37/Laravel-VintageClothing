@@ -139,5 +139,11 @@ return [
         'password' =>'パスワード',
         'title' => 'タイトル',
         'content' => '内容',
+        'information' => '店舗情報',
+        'phone' => '電話番号',
+        'prefecture' => '都道府県',
+        'City' => '市・区・郡',
+        'address' => '町域・番地・建物名など',
+        'businessHours' => '営業時間',
     ]
 ];

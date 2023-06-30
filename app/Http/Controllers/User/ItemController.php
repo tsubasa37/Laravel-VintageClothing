@@ -59,7 +59,7 @@ class ItemController extends Controller
             $quantity = 9;
         }
 
-        return view('user.show', compact('product','quantity'));
+        return view('user.items.show', compact('product','quantity'));
     }
 
 

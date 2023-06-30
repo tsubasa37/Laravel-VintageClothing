@@ -32,8 +32,18 @@ class  ProductRequest extends FormRequest
             'image1' => ['nullable', 'exists:images,id'],
             'image2' => ['nullable', 'exists:images,id'],
             'image3' => ['nullable', 'exists:images,id'],
-            'image4' => ['nullable', 'exists:images,id'],
+            'image'=>'image|mimes:jpg,jpeg,png|max:2048',
+            'files.*.image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'is_selling' => ['required','boolean'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'image' => '指定されたファイルが画像ではありません。',
+            'mines' => '指定された拡張子（jpg/jpeg/png）ではありません。',
+            'image.max' => 'ファイルサイズが大きいです。',
         ];
     }
 }

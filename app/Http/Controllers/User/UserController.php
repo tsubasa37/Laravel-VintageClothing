@@ -26,9 +26,11 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
+        $user = User::findOrFail(Auth::id());
 
         $imageFile = $request->image; //一時保存
         if(!is_null($imageFile) && $imageFile->isValid() ){
+            Storage::delete('public/gazou/'.$user->image);
             $fileNameToStore = ImageService::upload($imageFile, 'gazou');
         }
         $user = User::findOrFail($id);

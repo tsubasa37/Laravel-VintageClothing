@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\PrimaryCategory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Owner;
 use App\Models\Shop;
 use App\Models\Stock;
+use App\Services\shopImageService;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
@@ -186,7 +188,6 @@ class ProductController extends Controller
             'status' => 'info']);
 
         }
-
     }
 
     /**

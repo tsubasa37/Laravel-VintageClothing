@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('selection__categories', function (Blueprint $table) {
+        Schema::create('selection_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_id')->constrained();
-            $table->foreignId('cat_id')->constrained();
+            $table->foreignId('shop_id')->constrained();
+            $table->foreignId('shop_categories_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('selection__categories');
+        Schema::dropIfExists('selection_categories');
     }
 };

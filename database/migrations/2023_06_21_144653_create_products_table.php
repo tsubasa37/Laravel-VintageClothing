@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('information');
-            $table->string('image');
             $table->unsignedInteger('price');
             $table->boolean('is_selling');
             $table->integer('sort_order')->nullable();
@@ -25,6 +24,9 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->foreignId('secondary_category_id')
             ->constrained();
+            // $table->string('image1')->nullable();
+            // $table->string('image2')->nullable();
+            // $table->string('image3')->nullable();
             $table->foreignId('image1')
             ->nullable()
             ->constrained('images');

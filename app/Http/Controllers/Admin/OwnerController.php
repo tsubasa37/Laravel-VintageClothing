@@ -58,11 +58,22 @@ class OwnerController extends Controller
 
                 Shop::create([
                     'owner_id' => $owner->id,
-                    'name' => '店名を入力してください',
+                    'name' => '',
                     'information' => '',
                     'image1' => '',
                     'image2' => '',
                     'image3' => '',
+                    'phone' => '',
+                    'prefecture' => '',
+                    'City' => '',
+                    'address' => '',
+                    'businessHours' => '',
+                    'station' => '',
+                    'regularHoliday' => '',
+                    'home_page' => '',
+                    'twitter' => '',
+                    'Instagram' => '',
+                    'Facebook' => '',
                     'is_selling' => 0,
                 ]);
             }, 2);
