@@ -17,7 +17,9 @@ class ThreadController extends Controller
     public function index(Request $request)
     {
         $threads = Thread::all();
-        $threads = Thread::orderBy('created_at','desc')->paginate(10);
+        $threads = Thread::orderBy('created_at','desc')
+        ->searchKeyword($request->keyword)
+        ->paginate(10);
         // dd($threads);
         $threads->load('user','comments');
 
@@ -95,4 +97,14 @@ class ThreadController extends Controller
     {
         //
     }
+    // public function search(Request $request)
+    // {
+    //     // dd($request->keyword);
+    //     $threads = Thread::where('title','like',"%{$request->keyword}%")
+    //                 ->orWhere('content','like',"%{$request->keyword}%")
+    //                 ->paginate(5);
+
+
+    //     return view('user.questions.index', compact('threads'));
+    // }
 }

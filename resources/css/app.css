@@ -3,6 +3,7 @@
 @import 'question';
 @import 'cms';
 @import 'topPage';
+@import 'shop';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

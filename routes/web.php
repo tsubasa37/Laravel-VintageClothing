@@ -7,6 +7,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ThreadController;
 use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\User\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,17 +38,20 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
         Route::get('cancel', [CartController::class,'cancel'])->name('cart.cancel');
 });
 Route::resource('questions', ThreadController::class);
+Route::post('/questions/search', [ThreadController::class, 'search'])->name('questions.search');
+Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
+Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
 // Route::get('/question', [ThreadController::class, 'index'])->name('question.index');
 // Route::get('/question/show/{thread}', [ThreadController::class, 'show'])->name('question.show');
 // Route::get('/question/create', [ThreadController::class, 'create'])->name('question.create');
 // Route::post('/question/store', [ThreadController::class, 'store'])->name('question.store');
-Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
-Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
 // Route::resource('/questions', 'ThreadController',  ['except' => ['index']]);
 // Route::resource('/comments', 'CommentController')->middleware('auth');
 // Route::get('/dashboard', function () {
 //     return view('user.dashboard');
 // })->middleware(['auth:users', 'verified'])->name('dashboard');
+
+Route::resource('shops', ShopController::class);
 
 Route::middleware('auth:users')->group(function () {
     Route::get('/', [UserController::class,'index'])->name('index');

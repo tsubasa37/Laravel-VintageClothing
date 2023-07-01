@@ -1,0 +1,129 @@
+
+.wrapper {
+    display: block;
+    max-width: 1200px;
+    height: 100%;
+    margin: 50px auto;
+    background-color: #edd2be1c;
+}
+.shop-all h1{
+    padding: 50px 0 30px 30px;
+}
+.number{
+    margin-left: 30px;
+    font-size: 20px;
+}
+/* 店舗一覧情報 */
+.shop-wrapper{
+    max-width: 1000px;
+    height: 350px;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+@media screen and (max-width: 800px) {
+    .shop-wrapper {
+    display: block;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .mobile-shop-list  {
+    display: flex;
+    }
+}
+
+.shop-list-wrap {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+}
+@media screen and (max-width: 800px) {
+    .shop-list-wrap {
+    width: 50px;
+    height: 50px;
+    margin:0px;
+    }
+}
+
+
+
+.shop-list-img img {
+    padding-top: 13px;
+    padding-left: 20px;
+    width: 400px;
+    height: 300px;
+}
+.shop-list-img img:hover {
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+
+
+.shop-list-name h1{
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 60px;
+    font-size:40px
+}
+@media screen and (max-width:800px) {
+    .shop-list-name h1{
+    margin-top: 10px;
+    margin-left: 30px;
+    font-size: 30px;
+    }
+}
+.shop-list-category {
+    line-height: 150px;
+    margin-left: 60px;
+}
+@media screen and (max-width:800px) {
+    .shop-list-category {
+    line-height: 80px;
+    margin-left: 30px;
+    }
+}
+.shop-list-address{
+    margin-left: 60px;
+    margin-top: 30px;
+    text-align: left;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.6;
+
+
+
+}
+@media screen and (max-width:800px) {
+    .shop-list-address {
+    margin-left: 30px;
+    }
+}
+    .mobile-shop-list  {
+    display: none;
+    }
+/* スマホ画面の画像 */
+@media screen and (max-width: 800px) {
+    .pc-shop-list  {
+    display: none;
+    }
+}
+
+.mobile-shop-list img {
+    width: 300px;
+    height: 150px;
+    margin-left: 13%;
+    margin-top: 5%;
+}
+@media screen and (max-width:800px) {
+    .mobile-shop-list  {
+    display: block;
+    }
+}
+.Not-Find p{
+    margin-top: 200px;
+    text-align: center;
+}

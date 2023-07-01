@@ -23,20 +23,20 @@
     <!-- 検索ボックス -->
 
         <div class="search">
-        <form action="search_shop.php" method="post" class="search">
-            <div class=" shop__search">
-            <div class="flex shop__search__area">
-                <input name="Area" type="text" placeholder="エリア(例)東京">
-            </div>
-            <div class="flex search__store">
-                <input name="storeName" type="text" placeholder="店舗名">
-            </div>
-            <div class="flex search_container">
-                <input type="submit" value="検索">
-                <input type="hidden" name="type" value="search">
-            </div>
-            </div>
-        </form>
+            <form action="{{ route('user.shops.index') }}" method="get" class="search">
+                <div class=" shop__search">
+                    <div class="flex shop__search__area">
+                        <input name="Area" type="text" placeholder="エリア(例)東京">
+                    </div>
+                    <div class="flex search__store">
+                        <input name="storeName" type="text" placeholder="店舗名">
+                    </div>
+                    <div class="flex search_container">
+                        <input type="submit" value="検索">
+                        <input type="hidden" name="type" value="search">
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
     @vite(['resources/js/image.js'])
