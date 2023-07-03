@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Product;
 use App\Models\User;
 use InterventionImage;
 use App\Services\ImageService;
@@ -12,7 +13,10 @@ use App\Services\ImageService;
 class UserController extends Controller
 {
     public function index(){
-        return view('user.index');
+        // 新しい順にゲットするように変更
+        $products = Product::AvailableItems()->get();
+        // dd($products);
+        return view('user.index', compact('products'));
     }
 
     public function edit()

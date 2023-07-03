@@ -13,6 +13,7 @@ Class shopImageService
         // dd($imageFile);
         $file1 = $imageFile1;
         $fileName = uniqid(rand().'_');
+        // dd($file1);
         $extension = $file1->extension();
         $image1 = $fileName. '.' . $extension;
         $resizedImage = InterventionImage::make($file1)->resize(1920,1080)->encode();
@@ -20,6 +21,7 @@ Class shopImageService
         $resizedImage );
         return $image1;
     }
+
     public static function upload2($imageFile2, $folderName)
     {
         // dd($imageFile);
@@ -33,6 +35,8 @@ Class shopImageService
         $resizedImage );
         return $image2;
     }
+
+
     public static function upload3($imageFile3, $folderName)
     {
         // dd($imageFile);

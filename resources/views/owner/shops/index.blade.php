@@ -1,9 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-flash-message status="session('status')" />
                     @foreach ($shops as $shop)
-                        <div class="w-1/2 p-4">
+                        <div class="w-2/3 mx-auto p-4">
                             <a href="{{ route('owner.shops.edit',['shop' => $shop->id]) }}">
                                 <div class="border rounded-md p-4">
                                     <div class="mb-4">

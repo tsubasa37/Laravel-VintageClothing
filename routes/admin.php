@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\OwnerController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ use App\Http\Controllers\Admin\OwnerController;
 
 Route::resource('owners', OwnerController::class)
 ->middleware('auth:admin', 'verified')->except(['show']);
+Route::resource('users', UserController::class)
+->middleware('auth:admin', 'verified')->except(['show']);
 
 
 Route::get('/dashboard', function () {
@@ -41,6 +44,11 @@ Route::prefix('expired-owners')->
     middleware('auth:admin')->group(function(){
         Route::get('index', [OwnerController::class,'expiredOwnerIndex'])->name('expired-owners.index');
         Route::post('destroy/{owner}',[OwnerController::class, 'expiredOwnerDestroy'])->name('expired-owners.destroy');
+});
+Route::prefix('expired-users')->
+    middleware('auth:admin')->group(function(){
+        Route::get('index', [UserController::class,'expiredUserIndex'])->name('expired-users.index');
+        Route::post('destroy/{user}',[UserController::class, 'expiredUserDestroy'])->name('expired-users.destroy');
 });
 
 Route::middleware('auth')->group(function () {

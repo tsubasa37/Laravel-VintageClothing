@@ -19,9 +19,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
         <!-- Scripts -->
@@ -29,18 +30,17 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-
-            {{-- @if(auth('admin')->user())
-                @include('layouts.admin-navigation')
-            @elseif (auth('owners')->user())
-                @include('layouts.owner-navigation')
-            @elseif (auth('users')->user())
-                @include('layouts.user-navigation')
-            @endif --}}
-
+{{--
             @if ($uriPrefix === 'admin')
                 @include('layouts.admin-navigation')
             @elseif ($uriPrefix === 'owner')
+                @include('layouts.owner-navigation')
+            @else
+                @include('layouts.user-navigation')
+            @endif --}}
+            @if (request()->is('admin*'))
+                @include('layouts.admin-navigation')
+            @elseif (request()->is('owner*'))
                 @include('layouts.owner-navigation')
             @else
                 @include('layouts.user-navigation')

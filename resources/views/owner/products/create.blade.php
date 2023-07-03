@@ -9,21 +9,25 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('owner.products.store') }}" method="POST">
+                    <form action="{{ route('owner.products.store') }}" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="-m-2">
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="name" class="leading-7 text-sm text-gray-600">商品名※必須</label>
                                     <input type="text" id="name" name="name" value="{{ old('name') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    @error('name')
+                                    <div class="text-sm text-red-600 dark:text-red-400 space-y-1'">{{ $message }}</div>
+                                @enderror
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="information" class="leading-7 text-sm text-gray-600">商品情報※必須</label>
                                     <textarea id="information" name="information" required rows="10" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{old('information')}}</textarea>
-                                    <x-input-error :messages="$errors->get('information ')" class="mt-2" />
+                                    @error('information')
+                                    <div class="text-sm text-red-600 dark:text-red-400 space-y-1'">{{ $message }}</div>
+                                @enderror
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
@@ -72,10 +76,24 @@
                                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                 </div>
                             </div>
-                            <x-select-image :images="$images" name="image1" />
+                            {{-- <x-select-image :images="$images" name="image1" />
                             <x-select-image :images="$images" name="image2" />
                             <x-select-image :images="$images" name="image3" />
-                            <x-select-image :images="$images" name="image4" />
+                            <x-select-image :images="$images" name="image4" /> --}}
+                            <div class="p-2 w-1/2 mx-auto">
+                                <div class="relative">
+                                    <label for="image" class="leading-7 text-sm text-gray-600">画像</label>
+                                    <div>
+                                        <input type="file" id="image" name="image1" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                    <div>
+                                        <input type="file" id="image2" name="image2" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                    <div>
+                                        <input type="file" id="image3" name="image3" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div>

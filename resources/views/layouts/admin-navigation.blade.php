@@ -14,8 +14,20 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                        {{ __('Dashboard') }}
+                    <li class="has-child"><a href="#">Blog</a>
+                        <ul>
+                        <li><a href="#">Blog Top</a></li>
+                        <li><a href="#">Blog-1</a></li>
+                        <li><a href="#">Blog-2</a></li>
+                        <li><a href="#">Blog-3</a></li>
+                        <li><a href="#">Blog-4</a></li>
+                        </ul>
+                      </li>
+                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                        ユーザー管理
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.expired-users.index')" :active="request()->routeIs('admin.expired-users.index')">
+                        期限切れユーザー一覧
                     </x-nav-link>
                     <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
                         オーナー管理
@@ -43,7 +55,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('admin.profile.edit')">
-                            {{ __('Profile') }}
+                            マイページ
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -51,8 +63,8 @@
                             @csrf
                             <x-dropdown-link :href="route('admin.logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                                this.closest('form').submit();" class="text-red-400">
+                                ログアウト
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -94,7 +106,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('admin.profile.edit')">
-                    {{ __('Profile') }}
+                    マイページ
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -103,8 +115,8 @@
 
                     <x-responsive-nav-link :href="route('admin.logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                                        this.closest('form').submit();" class="text-red-400">
+                        ログアウト
                     </x-responsive-nav-link>
                 </form>
             </div>

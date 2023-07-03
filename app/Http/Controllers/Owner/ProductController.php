@@ -40,7 +40,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $ownerInfo = Owner::with('shop.product.imageFirst') ->where('id', Auth::id())->get();
+        $ownerInfo = Owner::with('shop.product') ->where('id', Auth::id())->get();
 
         return view('owner.products.index',compact('ownerInfo'));
     }
@@ -71,6 +71,24 @@ class ProductController extends Controller
     {
         try{
             DB::transaction(function () use($request) {
+            // dd( $request->image2 );
+            $imageFile1 = $request->image1; //一時保存
+            $imageFile2 = $request->image2; //一時保存
+            $imageFile3 = $request->image3; //一時保存
+
+            if(!is_null($imageFile1)){
+                //   Storage::delete('public/shops/'.$shop->image1);
+                $image1 = shopImageService::upload1($imageFile1, 'products');
+            }
+            if(!is_null($imageFile2)){
+                //   Storage::delete('public/shops/'.$shop->image2);
+                $image2 = shopImageService::upload2($imageFile2, 'products');
+            }
+            if(!is_null($imageFile3)){
+                //   Storage::delete('public/shops/'.$shop->image3);
+                $image3 = shopImageService::upload3($imageFile3, 'products');
+            }
+
                 $product = Product::create([
                     'name' => $request->name,
                     'information' => $request->information,
@@ -78,10 +96,9 @@ class ProductController extends Controller
                     'sort_order' => $request->sort_order,
                     'shop_id' => $request->shop_id,
                     'secondary_category_id' => $request->category,
-                    'image1' => $request->image1,
-                    'image2' => $request->image2,
-                    'image3' => $request->image3,
-                    'image4' => $request->image4,
+                    'image1' => $image1,
+                    'image2' => $image2,
+                    'image3' => $image3,
                     'is_selling' => $request->is_selling,
                 ]);
 
@@ -152,17 +169,44 @@ class ProductController extends Controller
         } else {
             try{
                 DB::transaction(function () use($request,$product) {
+
+                    $imageFile1 = $request->image1; //一時保存
+                    $imageFile2 = $request->image2; //一時保存
+                    $imageFile3 = $request->image3; //一時保存
+                    if(!is_null($imageFile1) && $imageFile1->isValid() ){
+                        Storage::delete('public/products/'.$product->image1);
+                        $image1 = shopImageService::upload1($imageFile1, 'products');
+                    }
+                    if(!is_null($imageFile2) && $imageFile2->isValid() ){
+                        Storage::delete('public/products/'.$product->image2);
+                        $image2 = shopImageService::upload2($imageFile2, 'products');
+                    }
+                    if(!is_null($imageFile3) && $imageFile3->isValid() ){
+                        Storage::delete('public/products/'.$product->image3);
+                        $image3 = shopImageService::upload3($imageFile3, 'products');
+                    }
+
+
                     $product->name = $request->name;
                     $product->information = $request->information;
                     $product->price = $request->price;
                     $product->sort_order = $request->sort_order;
                     $product->shop_id = $request->shop_id;
                     $product->secondary_category_id = $request->category;
-                    $product->image1 = $request->image1;
-                    $product->image2 = $request->image2;
-                    $product->image3 = $request->image3;
-                    $product->image4 = $request->image4;
+                    // $product->image1 = $request->image1;
+                    // $product->image2 = $request->image2;
+                    // $product->image3 = $request->image3;
                     $product->is_selling = $request->is_selling;
+
+                    if( !is_null($imageFile1) && $imageFile1->isValid()){
+                        $product->image1 = $image1;
+                    }
+                    if( !is_null($imageFile2) && $imageFile2->isValid()){
+                        $product->image2 = $image2;
+                    }
+                    if( !is_null($imageFile3) && $imageFile3->isValid()){
+                        $product->image3 = $image3;
+                    }
                     $product->save();
 
                     if($request->type === \Constant::PRODUCT_LIST['add']){

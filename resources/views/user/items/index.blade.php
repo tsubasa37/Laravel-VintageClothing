@@ -6,7 +6,7 @@
         <form action="{{ route('user.items.index') }}" method="get">
             <div class="lg:flex lg:justify-around">
                 <div class="lg:flex items-center">
-                    <select name="category" class="mb-2 lg:mb-0 lg:mr-2">
+                    <select name="category" class="lg:mb-0 lg:mr-2">
                         <option value="0" @if(\Request::get('category') === '0') selected @endif>全て</option>
                         @foreach($categories as $category)
                             <optgroup label="{{ $category->name }}">
@@ -45,7 +45,7 @@
                             </option>
                         </select>
                     </div>
-                    <div>
+                    {{-- <div>
                         <span class="text-sm">表示件数</span><br>
                         <select id="pagination" name="pagination">
                             <option value="20" @if(\Request::get('pagination') === '20') selected @endif>
@@ -58,7 +58,7 @@
                                 100件
                             </option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </form>

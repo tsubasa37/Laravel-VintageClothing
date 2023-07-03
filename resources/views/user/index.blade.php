@@ -1,25 +1,25 @@
 <x-app-layout>
     <section>
-    <div class="p-swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="./images/shop01.jpg" alt="">
+        <div class="p-swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/shop01.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/shop02.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/shop03.jpg" alt="">
+                </div>
             </div>
-            <div class="swiper-slide">
-                <img src="./images/shop02.jpg" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/shop03.jpg" alt="">
-            </div>
+            <!-- pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="scrolldown4"><span>Scroll</span></div>
         </div>
-        <!-- pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="scrolldown4"><span>Scroll</span></div>
-    </div>
     <!-- 検索ボックス -->
 
         <div class="search">
@@ -37,6 +37,37 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <div class="flex flex-wrap">
+                            @foreach ($products as $product)
+                                <div class="w-1/4 p-2 md:p-4">
+                                    <a href="{{ route('user.items.show',['item' => $product->id]) }}">
+                                        <div class="border rounded-md p-2 md:p-4">
+                                            <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
+                                                <div class="text-gray-700 pt-2">
+                                                    {{ $product->name}}
+                                                </div>
+                                                <div class="mt-4">
+                                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
+                                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
+                                                    <p class="mt-1">{{ number_format($product->price)}} <span class="text-sm text-gray-700">円(税込)</span></p>
+                                                </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                            {{-- {{$products->appends([
+                                'sort' => \Request::get('sort'),
+                                'pagination' => \Request::get('pagination')
+                            ])->links()}} --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     @vite(['resources/js/image.js'])

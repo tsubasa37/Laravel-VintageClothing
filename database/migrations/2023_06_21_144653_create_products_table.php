@@ -24,21 +24,21 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->foreignId('secondary_category_id')
             ->constrained();
-            // $table->string('image1')->nullable();
-            // $table->string('image2')->nullable();
-            // $table->string('image3')->nullable();
-            $table->foreignId('image1')
-            ->nullable()
-            ->constrained('images');
-            $table->foreignId('image2')
-            ->nullable()
-            ->constrained('images');
-            $table->foreignId('image3')
-            ->nullable()
-            ->constrained('images');
-            $table->foreignId('image4')
-            ->nullable()
-            ->constrained('images');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            // $table->foreignId('image1')
+            // ->nullable()
+            // ->constrained('images');
+            // $table->foreignId('image2')
+            // ->nullable()
+            // ->constrained('images');
+            // $table->foreignId('image3')
+            // ->nullable()
+            // ->constrained('images');
+            // $table->foreignId('image4')
+            // ->nullable()
+            // ->constrained('images');
             $table->timestamps();
         });
     }

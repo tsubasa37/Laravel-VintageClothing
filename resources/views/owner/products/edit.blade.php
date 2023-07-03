@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-flash-message status="session('status')" />
-                    <form action="{{ route('owner.products.update',['product' => $product->id]) }}" method="POST">
+                    <form action="{{ route('owner.products.update',['product' => $product->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="-m-2">
@@ -94,10 +94,39 @@
                                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                 </div>
                             </div>
-                            <x-select-image :images="$images" currentId="{{$product->image1}}" currentImage="{{$product->imageFirst->filename ??''}}" name="image1" />
+                            {{-- <x-select-image :images="$images" currentId="{{$product->image1}}" currentImage="{{$product->imageFirst->filename ??''}}" name="image1" />
                                 <x-select-image :images="$images" currentId="{{$product->image2}}" currentImage="{{$product->imageSecond->filename ??''}}" name="image2" />
                                 <x-select-image :images="$images" currentId="{{$product->image3}}" currentImage="{{$product->imageThird->filename ??''}}" name="image3" />
-                                <x-select-image :images="$images" currentId="{{$product->image4}}" currentImage="{{$product->imageFourth->filename ??''}}" name="image4" />
+                                <x-select-image :images="$images" currentId="{{$product->image4}}" currentImage="{{$product->imageFourth->filename ??''}}" name="image4" /> --}}
+                            <div class="p-2 w-1/2 mx-auto">
+                                <div class="relative">
+                                    <div class="flex">
+                                        <div class="m-2">
+                                            <x-thumbnail :filename="$product->image1" type="products" />
+                                        </div>
+                                        <div class="m-2">
+                                            <x-thumbnail :filename="$product->image2" type="products" />
+                                        </div>
+                                        <div class="m-2">
+                                            <x-thumbnail :filename="$product->image3" type="products" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2 w-1/2 mx-auto">
+                                <div class="relative">
+                                    <label for="image" class="leading-7 text-sm text-gray-600">画像</label>
+                                    <div>
+                                        <input type="file" id="image" name="image1" accept=“image/png,image/jpeg,image/jpg”  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                    <div>
+                                        <input type="file" id="image2" name="image2" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                    <div>
+                                        <input type="file" id="image3" name="image3" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div>
