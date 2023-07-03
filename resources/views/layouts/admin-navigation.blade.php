@@ -14,27 +14,42 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <li class="has-child"><a href="#">Blog</a>
-                        <ul>
-                        <li><a href="#">Blog Top</a></li>
-                        <li><a href="#">Blog-1</a></li>
-                        <li><a href="#">Blog-2</a></li>
-                        <li><a href="#">Blog-3</a></li>
-                        <li><a href="#">Blog-4</a></li>
-                        </ul>
-                      </li>
-                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
-                        ユーザー管理
-                    </x-nav-link>
-                    <x-nav-link :href="route('admin.expired-users.index')" :active="request()->routeIs('admin.expired-users.index')">
-                        期限切れユーザー一覧
-                    </x-nav-link>
-                    <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
-                        オーナー管理
-                    </x-nav-link>
-                    <x-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
-                        期限切れオーナー一覧
-                    </x-nav-link>
+                    <ul class="admin-nav">
+                        <li class="nav-menu">
+                            <a href="#">ユーザー管理</a>
+                            <ul class="admin-menu-list">
+                                <li class="menu-item">
+                                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                                        ユーザー一覧
+                                    </x-nav-link>
+                                </li>
+                                <li class="menu-item">
+                                    <x-nav-link :href="route('admin.expired-users.index')" :active="request()->routeIs('admin.expired-users.index')">
+                                        期限切れユーザー一覧
+                                    </x-nav-link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <ul class="admin-nav">
+                        <li class="nav-menu">
+                            <a href="#">オーナー管理</a>
+                            <ul class="admin-menu-list">
+                                <li class="menu-item">
+                                    <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.index')">
+                                        オーナー一覧
+                                    </x-nav-link>
+                                </li>
+                                <li class="menu-item">
+                                    <x-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.expired-owners.index')">
+                                        期限切れオーナー一覧
+                                    </x-nav-link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -123,3 +138,4 @@
         </div>
     </div>
 </nav>
+@vite(['resources/js/image.js'])

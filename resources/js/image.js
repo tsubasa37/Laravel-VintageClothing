@@ -42,3 +42,10 @@ const swiper = new Swiper('.p-swiper-container', {
 });
 
 
+
+
+$(function() {
+    $('.nav-menu').hover(function() {
+      $(this).children('.admin-menu-list').stop().slideToggle();
+    });
+  });
