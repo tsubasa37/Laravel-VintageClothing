@@ -22,9 +22,9 @@ class Shop extends Model
         'City',
         'address',
         'businessHours',
-        // 'image1',
-        // 'image2',
-        // 'image3',
+        'image1',
+        'image2',
+        'image3',
         'station',
         'regularHoliday',
         'home_page',
@@ -44,6 +44,6 @@ class Shop extends Model
     }
     public function shopCategory()
     {
-        return $this->belongsToMany(ShopCategory::class);
+        return $this->belongsToMany(ShopCategory::class,'selection_categories')->withTimestamps();
     }
 }

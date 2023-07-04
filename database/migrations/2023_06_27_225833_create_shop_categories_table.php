@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('shop_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('category_group');
+            // $table->integer('category_group');
             $table->timestamps();
         });
     }

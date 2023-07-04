@@ -45,8 +45,11 @@ class ShopController extends Controller
     public function edit(string $id)
     {
         $shop = Shop::findOrFail($id);
-        // $shopCategories = ShopCategory::all();
-        return view('owner.shops.edit', compact('shop'));
+        // $shopCategory = ShopCategory::all();
+        $shopCategories = ShopCategory::all();
+        // dd($shopCategories);
+        return view('owner.shops.edit',['shop' => $shop, 'shopCategories' => $shopCategories]);
+        // return view('owner.shops.edit', compact('shop', 'shopCategories'));
 
     }
 
@@ -65,7 +68,7 @@ class ShopController extends Controller
             'is_selling' => ['required'],
         ]);
 
-        // dd( $request->image2 );
+        // dd($request->shopCategories );
         $imageFile1 = $request->image1; //一時保存
         $imageFile2 = $request->image2; //一時保存
         $imageFile3 = $request->image3; //一時保存

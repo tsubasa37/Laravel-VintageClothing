@@ -16,27 +16,27 @@ class ShopCategorySeeder extends Seeder
         DB::table('shop_categories')->insert([
             [
                 'name' => 'アメリカ系',
-                'category_group' => 1,
+                'created_at' => '2023/6/19 11:11:11'
             ],
             [
                 'name' => 'ストリート',
-                'category_group' => 2,
+                'created_at' => '2023/6/19 11:11:11'
             ],
             [
                 'name' => 'ヴィンテージ',
-                'category_group' => 3,
+                'created_at' => '2023/6/19 11:11:11'
             ],
             [
                 'name' => 'ヨーロッパ系',
-                'category_group' => 4,
+                'created_at' => '2023/6/19 11:11:11'
             ],
             [
                 'name' => 'ブランド',
-                'category_group' => 5,
+                'created_at' => '2023/6/19 11:11:11'
             ],
             [
                 'name' => 'アクセサリー',
-                'category_group' => 6,
+                'created_at' => '2023/6/19 11:11:11'
             ],
         ]);
     }

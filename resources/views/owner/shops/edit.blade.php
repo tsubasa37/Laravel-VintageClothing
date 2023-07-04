@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <form action="{{ route('owner.shops.update',['shop' => $shop->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -94,6 +94,14 @@
                                         <input type="file" id="image3" name="image3" accept=“image/png,image/jpeg,image/jpg” class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="p-2 m-10 w-1/2 mx-auto">
+                                <label class="block text-sm font-medium mb-2">店舗カテゴリー</label>
+                                <select id="js-pulldown" class="w-full" name="shopCategories[]" multiple="multiple">
+                                    @foreach ($shopCategories as $shopCategory)
+                                        <option value="{{ $shopCategory->id}}" @if(in_array($shopCategory->id, old('shopCategories', $shop->shopCategory->pluck('id')->all()))) selected @endif>{{ $shopCategory->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
@@ -192,15 +200,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="mb-6">
-                                <label class="block text-sm font-medium mb-2">登場するねこ</label>
-                                <select id="js-pulldown" class="mr-6 w-full" name="shopCategories[]" multiple>
-                                    <option value="">選択してください</option>
-                                    @foreach ($shopCategories as $shopCategory)
-                                    <option value="{{ $shopCategory->id}}" @if(in_array($shopCategory->id, old('shopCategories', $shop->shop_categories->pluck('id')->all()))) selected @endif>{{ $shopCategory->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
                             <div class="p-2 w-full flex justify-around mt-4">
                                 <button type="button" onclick="location.href='{{ route('owner.shops.index') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg">戻る</button>
                                 <button type="submit" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">更新</button>
@@ -211,11 +210,21 @@
             </div>
         </div>
     </div>
-    {{-- <script> --}}
 
-        {{-- </script> --}}
-        <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $('select').multipleSelect({
+
+                formatSelectAll: function() {
+                    return 'すべて';
+                },
+                formatAllSelected: function() {
+                    return '全て選択されています';
+                }
+            });
+        });
+    </script>
         @vite(['resources/js/CMS.js'])
-        {{-- <script src="js/jquery.iPreview.min.js"></script> --}}
+
 
 </x-app-layout>
