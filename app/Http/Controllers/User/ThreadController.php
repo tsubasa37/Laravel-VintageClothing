@@ -50,7 +50,7 @@ class ThreadController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('user.question.index')
+        return redirect()->route('user.questions.index')
         ->with(['message'=>'店舗情報を更新しました。',
         'status' => 'info']);
     }
@@ -61,17 +61,12 @@ class ThreadController extends Controller
     public function show(string $id)
     {
         $thread = Thread::find($id);
-        $thread->comments = Comment::orderBy('created_at','desc')->paginate(3);
-        // dd($thread->comments);
-        // $comments = $thread->comments;
-        // $comments->orderBy('created_at', 'DESC');
-        // $thread ->orderBy('created_at','desc')
-        // ->paginate(20);
-        // dd($thread);
+        // $comments = Comment::select('*')->where('thread_id','=',$id)->orderBy('created_at','desc')->get();
+        $comments = Comment::select('*')->where('thread_id','=',$id)->orderBy('created_at','desc')->paginate(3);
+        // dd($comments[1]->user->id);
 
 
-        // dd($thread);
-        return view('user.questions.show', compact('thread'));
+        return view('user.questions.show', compact('thread','comments'));
     }
 
     /**

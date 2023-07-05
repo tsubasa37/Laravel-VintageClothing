@@ -17,10 +17,10 @@
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('ホーム') }}
                     </x-nav-link>
-                        <x-nav-link :href="route('user.questions.index')" :active="request()->routeIs('user.questions.index')">
+                    <x-nav-link :href="route('user.questions.index')" :active="request()->routeIs('user.questions.index')">
                         Q&A
                     </x-nav-link>
-                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('')">
+                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
                         商品一覧
                     </x-nav-link>
                     <x-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">

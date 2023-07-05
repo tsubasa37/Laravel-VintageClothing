@@ -66,6 +66,7 @@ class ShopController extends Controller
             'address' => ['required', 'string', 'max:50'],
             'businessHours' => ['required', 'string', 'max:50'],
             'is_selling' => ['required'],
+            'shopCategories' => ['distinct', 'exists:shop_categories,id']
         ]);
 
         // dd($request->shopCategories );
@@ -102,6 +103,9 @@ class ShopController extends Controller
         $shop->Instagram = $request->Instagram;
         $shop->Facebook = $request->Facebook;
         $shop->is_selling = $request->is_selling;
+
+
+        $shop->shopCategory()->sync($request->shopCategories);
 
         if( !is_null($imageFile1) && $imageFile1->isValid()){
             $shop->image1 = $image1;

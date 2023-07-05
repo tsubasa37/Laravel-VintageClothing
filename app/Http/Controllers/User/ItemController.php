@@ -42,6 +42,7 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
+        // dd($products);
 
         return view('user.items.index',
         compact('products','categories'));

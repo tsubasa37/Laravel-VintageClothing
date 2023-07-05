@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,13 @@ Route::resource('users', UserController::class)
 ->middleware('auth:admin', 'verified')->except(['show']);
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('dashboard');
+// Route::get('/dashboard',DashboardController::class)
+// ->middleware(['auth:admin', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware(['auth:admin', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::prefix('expired-owners')->
     middleware('auth:admin')->group(function(){

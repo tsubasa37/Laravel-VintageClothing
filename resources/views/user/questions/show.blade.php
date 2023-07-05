@@ -20,22 +20,22 @@
                             <p class="card-text">{{ $thread->content }}</p>
                         </div>
                     </div>
-                    @foreach ($thread->comments as  $comment)
+                    @foreach ($comments as  $comment)
                     <div class="flex comment">
-                        <div class="comment-icon">
+                        {{-- <div class="comment-icon">
                             @auth
                             <x-user-image-thumbnail :filename="Auth::user()->image" type="gazou" />
                         @endauth
                         @guest
                             <img src="/images/noimage.png" alt="">
                         @endguest
-                        </div>
+                        </div> --}}
                         <div class="balloon2-left">
                             <p>{{ $comment->comment }}</p>
                         </div>
                     </div>
                     @endforeach
-                    {{ $thread->comments->links() }}
+                    {{ $comments->links() }}
                     <div class="p-6 comment-area">
                         <form action="{{ route('user.comment.store')}}" method="POST">
                             @csrf

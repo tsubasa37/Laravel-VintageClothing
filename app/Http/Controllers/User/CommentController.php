@@ -33,15 +33,6 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        // $thread = \Request::query();
-
-        // $thread = Thread::findOrFail($id);
-        // // $thread_id = \Request::query();
-        // $value = $request->input('value');
-        // $thread_id = \Request::query();
-        // dd($thread_id);
-
-        // dd($request);
         Comment::create([
             'user_id' => Auth::id(),
             'thread_id' => $request->thread_id,

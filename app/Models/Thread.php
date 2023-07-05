@@ -20,7 +20,7 @@ class Thread extends Model
     }
 
     public function comments(){
-      return $this->hasMany(Comment::class);
+      return $this->hasMany(Comment::class,'thread_id','id');
     }
 
     public function tags()
