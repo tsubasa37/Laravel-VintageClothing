@@ -39,8 +39,10 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
 });
 Route::resource('questions', ThreadController::class);
 Route::post('/questions/search', [ThreadController::class, 'search'])->name('questions.search');
+Route::post('questions/delete/{thread}', [ThreadController::class,'delete'])->name('questions.delete');
 Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
 // Route::get('/question', [ThreadController::class, 'index'])->name('question.index');
 // Route::get('/question/show/{thread}', [ThreadController::class, 'show'])->name('question.show');
 // Route::get('/question/create', [ThreadController::class, 'create'])->name('question.create');

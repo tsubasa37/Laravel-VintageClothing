@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'test',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
-            'image' => 'noimage.png',
+            'image' => '',
             'created_at' => '2023/6/19 11:11:11'
         ]);
     }

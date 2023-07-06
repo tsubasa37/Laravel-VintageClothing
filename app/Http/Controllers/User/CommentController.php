@@ -70,9 +70,15 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
-        //
+        Comment::where('comments.id', $id)
+        ->delete();
+
+        return redirect()
+        ->route('user.questions.index')
+        ->with(['message'=>'コメントを削除しました。',
+        'status' => 'alert']);
     }
 }
 

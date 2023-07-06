@@ -14,7 +14,7 @@
                         <div class="-m-2">
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
-                                    <label for="name" class="leading-7 text-sm text-gray-600">店名※必須</label>
+                                    <label for="name" class="leading-7 text-sm text-gray-600">店名※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="name" name="name" value="{{old('name', $shop->name)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
                                     @error('name')
@@ -47,7 +47,7 @@
                             </div>
                             <div class="p-2 w-1/2 mx-auto" id="edit">
                                 <div class="relative">
-                                    <label for="information" class="leading-7 text-sm text-gray-600">店舗情報※必須</label>
+                                    <label for="information" class="leading-7 text-sm text-gray-600">店舗情報※<span class="text-red-600">必須</span></label>
                                     <div class="tag">
                                         <ul>
                                             <!-- 装飾タグ -->
@@ -111,7 +111,7 @@
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
-                                    <label for="phone" class="leading-7 text-sm text-gray-600">TEL</label>
+                                    <label for="phone" class="leading-7 text-sm text-gray-600">TEL※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="phone" name="phone" required value="{{old('phone',$shop->phone)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     @error('phone')
                                         <div class="text-sm text-red-600 dark:text-red-400 space-y-1'">{{ $message }}</div>
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
-                                <label for="name" class="leading-7 text-sm text-gray-600">住所</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">住所※<span class="text-red-600">必須</span></label>
                                 <div class="relative">
                                     <label for="prefecture" class="leading-7 text-sm text-gray-600">都道府県</label>
                                     <input type="text" id="prefecture" name="prefecture" required value="{{old('prefecture', $shop->prefecture)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -148,7 +148,7 @@
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
-                                    <label for="businessHours" class="leading-7 text-sm text-gray-600">営業時間</label>
+                                    <label for="businessHours" class="leading-7 text-sm text-gray-600">営業時間※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="businessHours" required name="businessHours" value="{{old('businessHours',$shop->businessHours)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     @error('businessHours')
                                         <div class="text-sm text-red-600 dark:text-red-400 space-y-1'">{{ $message }}</div>

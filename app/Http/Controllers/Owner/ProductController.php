@@ -61,7 +61,7 @@ class ProductController extends Controller
         ->get();
 
         return view('owner.products.create',
-        compact('shops','images', 'categories'));
+        compact('shops', 'categories'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ProductController extends Controller
             }else{
                 $image1 = '';
             }
-            
+
             if(!is_null($imageFile2)  && $imageFile1->isValid()){
                 //   Storage::delete('public/shops/'.$shop->image2);
                 $image2 = shopImageService::upload2($imageFile2, 'products');
@@ -147,15 +147,15 @@ class ProductController extends Controller
 
         $shops = Shop::where('owner_id', Auth::id())->select('id', 'name')->get();
 
-        $images = Image::where('owner_id', Auth::id())
-        ->select('id','title','filename')
-        ->orderby('updated_at', 'desc')
-        ->get();
+        // $images = Image::where('owner_id', Auth::id())
+        // ->select('id','title','filename')
+        // ->orderby('updated_at', 'desc')
+        // ->get();
 
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
-        return view('owner.products.edit', compact('product', 'quantity','shops', 'images', 'categories'));
+        return view('owner.products.edit', compact('product', 'quantity','shops', 'categories'));
     }
 
 

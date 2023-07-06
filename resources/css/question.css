@@ -25,9 +25,8 @@
     margin: 0 0 1.5em 5%;
     padding: 7px 10px;
     min-width: 120px;
-    /* max-width: 100%; */
     width: 90%;
-    height: 100px;
+    /* height: 100px; */
     color: #555;
     font-size: 16px;
     background: #FFF;
@@ -192,4 +191,43 @@ a.question-page-signUp-btn:hover {
 
 .question_header {
     justify-content: space-between;
+}
+
+.thread-image img{
+    margin-top: 50px;
+    width: 250px;
+    height: 200px;
+}
+
+.thread-delete {
+    justify-content: end;
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+.thread-delete button:hover {
+    color:rgb(243, 13, 13);
+}
+
+.comment-delete {
+    justify-content: end;
+    margin-bottom: 10px;
+
+}
+.comment-delete button:hover {
+    color: red;
+}
+
+.thread-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.6;
+    width: 80%;
+}
+
+.thread-create {
+    font-size: 12px;
+}
+a:hover{
+    color: #333;
 }

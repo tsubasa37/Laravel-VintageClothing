@@ -12,7 +12,7 @@ class Thread extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'content', 'title'
+        'user_id', 'content', 'title','image1'
     ];
 
     public function user(){

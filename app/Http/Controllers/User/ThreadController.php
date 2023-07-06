@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Services\shopImageService;
 use Illuminate\Http\Request;
 use App\Models\Thread;
 use App\Models\Comment;
@@ -44,9 +45,20 @@ class ThreadController extends Controller
     public function store(QuestionRequest $request)
     {
         // $thread = Thread::findOrFail($id);
+        $imageFile1 = $request->image1; //一時保存
+
+        if(!is_null($imageFile1)  && $imageFile1->isValid()){
+            //   Storage::delete('public/shops/'.$shop->image1);
+            $image1 = shopImageService::upload1($imageFile1, 'questions');
+        }else{
+            $image1 = '';
+        }
+        // dd($image1);
+
         Thread::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
+            'image1' => $image1,
             'content' => $request->content,
         ]);
 
@@ -62,7 +74,7 @@ class ThreadController extends Controller
     {
         $thread = Thread::find($id);
         // $comments = Comment::select('*')->where('thread_id','=',$id)->orderBy('created_at','desc')->get();
-        $comments = Comment::select('*')->where('thread_id','=',$id)->orderBy('created_at','desc')->paginate(3);
+        $comments = Comment::select('*')->where('thread_id','=',$id)->paginate(3);
         // dd($comments[1]->user->id);
 
 
@@ -88,9 +100,15 @@ class ThreadController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
-        //
+       Thread::where('threads.id', $id)
+        ->delete();
+
+        return redirect()
+        ->route('user.questions.index')
+        ->with(['message'=>'投稿を削除しました。',
+        'status' => 'alert']);
     }
     // public function search(Request $request)
     // {
