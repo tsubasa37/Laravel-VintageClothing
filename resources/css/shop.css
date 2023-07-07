@@ -1,10 +1,12 @@
+.shop-link-btn:hover {
+    color: blue;
+}
 
 .wrapper {
     display: block;
     max-width: 1200px;
     height: 100%;
     margin: 50px auto;
-    background-color: #edd2be1c;
 }
 .shop-all h1{
     padding: 50px 0 30px 30px;
@@ -15,8 +17,9 @@
 }
 /* 店舗一覧情報 */
 .shop-wrapper{
-    max-width: 1000px;
-    height: 350px;
+    /* max-width: 80%; */
+    /* height: 350px; */
+    width:90%;
     margin: 50px auto;
     background-color: #fff;
     border: 1px solid #000;
@@ -47,16 +50,19 @@
     }
 }
 
-
+.shop-list{
+    width: 70%;
+}
 
 .shop-list-img img {
     padding-top: 13px;
+    padding-bottom: 13px;
     padding-left: 20px;
-    width: 400px;
+    width: 300px;
     height: 300px;
 }
-.shop-list-img img:hover {
-    transform: scale(1.05);
+.shop-wrapper:hover {
+    opacity: 0.5;
     transition-duration: 0.5s;
 }
 
@@ -126,4 +132,321 @@
 .Not-Find p{
     margin-top: 200px;
     text-align: center;
+}
+
+
+.shop-disp {
+    background-color: #fff;
+}
+.shop-detail{
+    width: 100%;
+    /* height: 150px; */
+    /* margin-top:50px; */
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid rgba(189, 164, 131, 0.329);
+}
+@media screen and (max-width:390px) {
+    .shop-detail{
+    width: 100%;
+    height: 100px;
+
+    }
+}
+.shop-detail-name h1{
+    /* margin-top: 100px; */
+    margin-left: 200px;
+    font-weight: bold;
+}
+@media screen and (max-width:1000px) {
+    .shop-detail-name h1{
+    margin-top: 50px;
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: 20px;
+    }
+}
+@media screen and (max-width:390px) {
+    .shop-detail-name h1{
+    margin-top: 50px;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    }
+}
+
+.shop-station-category{
+    padding-left: 200px;
+}
+
+.shop-station-category p{
+    /* padding-right: 300px; */
+    padding-bottom: 20px;
+}
+.shop-station-category span{
+    font-size: 15px;
+}
+
+@media screen and (max-width:1000px) {
+    .shop-station-category{
+    padding-left: 10%;
+    padding-top: 30px;
+    }
+    .shop-station-category p{
+    padding-right: 300px;
+    }
+    .shop-station-category span{
+    font-size: 15px;
+    }
+
+}
+@media screen and (max-width:390px) {
+    .shop-station-category{
+    padding-left: 10px;
+    padding-top: 30px;
+    }
+    .shop-station-category p{
+    padding-right: 0px;
+    }
+    .shop-station-category p:first-child{
+    padding-right: 150px;
+    }
+    .shop-detail-img {
+    display: none;
+    }
+}
+
+/* モバイルスライド画像 */
+.shop-disp-mobile-image {
+    display: none;
+}
+
+@media screen and (max-width:390px) {
+    .shop-disp-mobile-image {
+    display: block;
+    }
+    .shop-disp-img-swiper{
+    position:relative;
+    z-index: 1;
+    /*↑z-indexの値をh1のz-indexの値よりも小さくして背景に回す*/
+    margin-top: 100px;
+    }
+}
+
+/*戻る、次へ矢印の位置*/
+.slick-prev,
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    z-index: 3;
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #858282;/*矢印の色*/
+    border-right: 2px solid #716f6f;/*矢印の色*/
+    height: 25px;
+    width: 25px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left:2.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right:2.5%;
+    transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+    position: relative;
+    z-index: 3;
+    text-align:center;
+    margin:-50px 0 0 0;
+}
+
+.slick-dots li {
+    display:inline-block;
+    margin:0 5px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:1px;/*ドットボタンのサイズ*/
+    height:5px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
+}
+
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
+/* end */
+
+.shop-detail-img{
+    width: min(100% - 2rem, 60% );
+    margin: auto;
+}
+.shop-detail-img img {
+    width: 100%;
+    height: 500px;
+}
+
+
+.shop-information h3 {
+    margin-left: 20%;
+    font-size: 30px;
+    font-weight: 500;
+    padding-top: 20px;
+    /* width: min(100% - 2rem, 60% ); */
+    /* margin: auto; */
+}
+@media screen and (max-width:390px) {
+    .shop-information h3 {
+    margin-left: 5px;
+    font-size: 20px;
+    }
+}
+
+
+
+
+.pr-comment {
+    width: min(100% - 2rem, 60% );
+    margin: auto;
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width:390px) {
+    .pr-comment {
+    width: 95%;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 40px;
+    }
+}
+
+.line {
+    width: 800px;
+    margin-left: 23%;
+    margin-bottom: 30px;
+    border-bottom: rgb(216, 213, 213) solid;
+}
+/* 店舗情報のテーブル */
+.rst-data-table{
+    width: min(100% - 2rem, 60%);
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 100px;
+
+}
+@media screen and (max-width:1080px) {
+    .rst-data-table {
+    margin-left: 20%;
+    margin-right: 2%;
+    width: 60%;
+    }
+}
+@media screen and (max-width:390px) {
+    .rst-data-table {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 95%;
+    }
+}
+
+
+.rst-data-table tr{
+    height:50px;
+    line-height: 30px;
+    border: 0.5px solid black;
+}
+@media screen and (max-width:1080px) {
+    .rst-data-table tr{
+    height:20px;
+    line-height: 20px;
+    }
+}
+@media screen and (max-width:390px) {
+    .rst-data-table tr{
+    height:20px;
+    line-height: 20px;
+    }
+}
+
+
+.rst-data-table th{
+    position: relative;
+    width: 25%;
+    background-color:#E0FFFF;
+    color: rgb(11, 11, 11);
+    text-align: center;
+    padding: 10px 0;
+}
+.SNSLogo img{
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    padding-right: 5px;
+}
+
+.rst-data-table td{
+    width: 70%;
+    padding: 10px 0;
+    padding-left: 10px;
+}
+@media screen and (max-width:390px) {
+    .rst-data-table th{
+    position: relative;
+    width: 25%;
+    font-size: 14px;
+    padding:0;
+    }
+    .rst-data-table td{
+    font-size: 12px;
+    }
+}
+
+.SNSLogo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+
+
+#tab_menu {
+	display: flex;
+    width: min(100% - 2rem, 60%);
+    margin: auto;
+}
+#tab_menu li{
+	width: 50%;
+	padding: 0;
+	margin: 0 1px 0 0;
+	list-style: none;
+	background:#2098edda;
+}
+#tab_menu li:last-child {
+	margin-right: 0;
+}
+#tab_menu li.selected {
+	background: #2098edda;
+}
+#tab_menu li:hover {
+	background: #2098edda;
+    opacity: 0.6;
+}
+#tab_menu li a {
+	display: block;
+	padding: 12px 0 8px;
+    text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-size: 125%;
 }

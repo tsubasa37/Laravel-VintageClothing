@@ -16,31 +16,24 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         <div class="swiper-slide">
-                                            @if(isset($product->imageFirst->filename))
-                                                <img src="{{ asset('storage/products/' .  $product->imageFirst->filename )}}">
+                                            @if(isset($product->image1))
+                                                <img src="{{ asset('storage/products/' .  $product->image1 )}}">
                                             @else
-                                                <img src=" ">
+                                                <img src="/images/Noimage2.png ">
                                             @endif
                                         </div>
                                         <div class="swiper-slide">
-                                            @if(isset($product->imageSecond->filename))
-                                            <img src="{{ asset('storage/products/' .  $product->imageSecond->filename )}}">
+                                            @if(isset($product->image2))
+                                            <img src="{{ asset('storage/products/' .  $product->image2 )}}">
                                             @else
-                                                <img src=" ">
+                                                <img src="/images/Noimage2.png ">
                                             @endif
                                         </div>
                                         <div class="swiper-slide">
-                                            @if(isset($product->imageThird->filename))
-                                            <img src="{{ asset('storage/products/' .  $product->imageThird->filename )}}">
+                                            @if(isset($product->image3))
+                                            <img src="{{ asset('storage/products/' .  $product->image3 )}}">
                                             @else
-                                                <img src=" ">
-                                            @endif
-                                        </div>
-                                        <div class="swiper-slide">
-                                            @if(isset($product->imageFourth->filename))
-                                                <img src="{{ asset('storage/products/' .  $product->imageFourth->filename )}}">
-                                            @else
-                                                <img src=" ">
+                                                <img src="/images/Noimage2.png ">
                                             @endif
                                         </div>
                                     </div>
@@ -81,19 +74,11 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="border-t border-gray-400 my-8"></div>
-                        <div class="md-4 text-center">この商品を販売しているショップ</div>
-                        <div class="md-4 text-center">{{ $product->shop->name }}</div>
-                        <div class="md-4 text-center">
-                            @if($product->shop->filename !== null)
-                                <img class="mx-auto w-40 h-40 object-cover mt-5 mb-5 rounded-full" src="{{ asset('storage/shops/' .  $product->shop->filename )}}">
-                            @else
-                                <img src=" ">
-                            @endif
-                        </div>
-                        <div class="md-4 text-center">
-                            <button type="button" data-micromodal-trigger="modal-1" href='javascript: ' class="ml-auto text-white bg-gray-400 border-0 py-2 px-6 focus:outline-none hover:bg-gray-500 rounded">ショップの詳細を見る</button>
-                        </div>
+                        <div class="border-t border-gray-400 my-8 "></div>
+                            <a href="{{ route('user.shops.show',['shop' => $product->shop->id ]) }}">
+                                <div class="md-4 text-center">この商品を販売しているショップ</div>
+                                <div class="md-4 text-center shop-link-btn">{{ $product->shop->name }}</div>
+                            </a>
                     </div>
                 </div>
             </div>
@@ -101,26 +86,6 @@
     </div>
 
 
-    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                <header class="modal__header">
-                <h2 class="text-xl text-gray-700" id="modal-1-title">
-                    {{ $product->shop->name }}
-                </h2>
-                <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                </header>
-                <main class="modal__content" id="modal-1-content">
-                <p>
-                    {{ $product->shop->information }}
-                </p>
-                </main>
-                <footer class="modal__footer">
-                <button type="button" class="modal__btn" data-micromodal-close aria-label="Close this dialog window">閉じる</button>
-                </footer>
-            </div>
-        </div>
-    </div>
 
     {{-- <script src="./js/swiper.js"></script> --}}
     @vite(['resources/js/swiper.js'])

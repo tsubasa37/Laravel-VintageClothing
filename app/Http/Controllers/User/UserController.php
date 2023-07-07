@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index(){
         // 新しい順にゲットするように変更
-        $products = Product::AvailableItems()->get();
+        $products = Product::AvailableItems()->paginate(8);
         // dd($products);
         return view('user.index', compact('products'));
     }

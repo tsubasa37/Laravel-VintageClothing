@@ -13,11 +13,11 @@
         <main>
             <div class="wrapper">
                 @foreach ($shops as $shop)
-                    <a href="">
+                    <a href="{{ route('user.shops.show', ['shop' => $shop->id ]) }}">
                         <div class="shadow flex shop-wrapper">
                             <div class="pc-shop-list">
                                 <div class="shop-list-img js-main-img">
-                                    <img src="/images/noimage.png" onerror="this.style.display='none'" alt="" id="shop-disp-main-img">
+                                    <x-thumbnail :filename="$shop->image1" type="shops" />
                                 </div>
                             </div>
                             <div class="mobile-shop-list">

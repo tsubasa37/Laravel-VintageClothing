@@ -1,24 +1,26 @@
 <x-app-layout>
     <section>
         <div class="p-swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="./images/shop01.jpg" alt="">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/shop01.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/shop02.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/shop03.jpg" alt="">
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <img src="./images/shop02.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="./images/shop03.jpg" alt="">
-                </div>
+                <!-- pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="scrolldown4"><span>Scroll</span></div>
             </div>
-            <!-- pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="scrolldown4"><span>Scroll</span></div>
         </div>
     <!-- 検索ボックス -->
 
@@ -38,8 +40,10 @@
                 </div>
             </form>
         </div>
+        
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <h1 class="merchandise">商品</h1>
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="flex flex-wrap">
@@ -60,10 +64,7 @@
                                     </a>
                                 </div>
                             @endforeach
-                            {{-- {{$products->appends([
-                                'sort' => \Request::get('sort'),
-                                'pagination' => \Request::get('pagination')
-                            ])->links()}} --}}
+                            {{ $products->links() }}
                         </div>
                     </div>
                 </div>

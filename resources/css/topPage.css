@@ -189,8 +189,22 @@
     background:#eee;
     }
 
-
-
+    .merchandise {
+        font-size: 20px;
+        position: relative;
+        padding: 0.6em;
+        background: #e0edff;
+    }
+    .merchandise:after {
+        position: absolute;
+        content: '';
+        top: 100%;
+        left: 30px;
+        border: 15px solid transparent;
+        border-top: 15px solid #e0edff;
+        width: 0;
+        height: 0;
+      }
 
 
 

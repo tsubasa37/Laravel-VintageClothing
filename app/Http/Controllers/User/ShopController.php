@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ShopCategory;
+use App\Models\Product;
 use App\Models\Shop;
 
 class ShopController extends Controller
@@ -42,7 +44,14 @@ class ShopController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $shop = Shop::find($id);
+        // dd($products);
+        $shopCategories = ShopCategory::all();
+        // $products = Product::all()->where('products.shop_id','=',$id);
+        // dd($products);
+
+
+        return view('user.shops.show', compact('shop','shopCategories'));
     }
 
     /**
