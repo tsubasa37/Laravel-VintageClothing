@@ -10,6 +10,7 @@ use App\Models\Image;
 use App\Models\Stock;
 use App\Models\User;
 use App\Models\SecondaryCategory;
+use App\Models\like;
 
 class Product extends Model
 {
@@ -130,4 +131,15 @@ class Product extends Model
             return;
         }
     }
+
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    //後でViewで使う、いいねされているかを判定するメソッド。
+    public function isLikedBy($user): bool {
+        return Like::where('user_id', $user->id)->where('product_id', $this->id)->first() !==null;
+    }
+
 }

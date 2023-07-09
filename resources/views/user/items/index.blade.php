@@ -57,19 +57,36 @@
                     <div class="flex flex-wrap">
                         @foreach ($products as $product)
                             <div class="w-1/4 p-2 md:p-4">
-                                <a href="{{ route('user.items.show',['item' => $product->id]) }}">
-                                    <div class="border rounded-md p-2 md:p-4">
+                                <div class="border rounded-md p-2 md:p-4">
+                                    <a href="{{ route('user.items.show',['item' => $product->id]) }}">
                                         <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
-                                            <div class="text-gray-700 pt-2">
-                                                {{ $product->name}}
-                                            </div>
-                                            <div class="mt-4">
-                                                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
-                                                <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
-                                                <p class="mt-1">{{ number_format($product->price)}} <span class="text-sm text-gray-700">円(税込)</span></p>
-                                            </div>
-                                    </div>
-                                </a>
+                                        <div class="text-gray-700 pt-2">
+                                            {{ $product->name}}
+                                        </div>
+                                        <div class="mt-4">
+                                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
+                                            <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
+                                            <p class="mt-1">{{ number_format($product->price)}} <span class="text-sm text-gray-700">円(税込)</span></p>
+                                        </div>
+                                    </a>
+
+                                    @auth
+                                        <!-- product.phpに作ったisLikedByメソッドをここで使用 -->
+                                        @if (!$product->isLikedBy(Auth::user()))
+                                            <span class="likes">
+                                            <i class="far fa-heart like-toggle" data-product-id="{{ $product->id }}"></i>
+                                            <span class="like-counter">{{$product->likes_count}}</span>
+                                            </span><!-- /.likes -->
+                                        @else
+                                            <span class="likes">
+                                            <i class="far fa-heart heart like-toggle liked" data-product-id="{{ $product->id }}"></i>
+                                            <span class="like-counter">{{$product->likes_count}}</span>
+                                            </span><!-- /.likes -->
+                                        @endif
+
+                                    @endauth
+
+                                </div>
                             </div>
                         @endforeach
                         {{$products->appends([
@@ -81,6 +98,9 @@
             </div>
         </div>
     </div>
+
+    @vite(['resources/js/like.js'])
+
     <script>
         const select = document.getElementById('sort');
         select.addEventListener('change',function(){

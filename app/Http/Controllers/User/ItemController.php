@@ -8,6 +8,8 @@ use App\Models\PrimaryCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Stock;
+use App\Models\Like;
+
 
 class ItemController extends Controller
 {
@@ -42,7 +44,10 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
-        // dd($products);
+        $Products = Product::withCount('likes')->orderBy('id', 'desc')->paginate(10);
+        $param = [
+            'Products' => $Products,
+        ];
 
         return view('user.items.index',
         compact('products','categories'));
@@ -54,7 +59,6 @@ class ItemController extends Controller
         $product = Product::findOrFail($id);
         $quantity = Stock::where('product_id', $product->id)
         ->sum('quantity');
-        // dd($product);
 
         if($quantity > 9)
         {
@@ -63,6 +67,8 @@ class ItemController extends Controller
 
         return view('user.items.show', compact('product','quantity'));
     }
+
+
 
 
 

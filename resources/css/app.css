@@ -10,3 +10,6 @@
 @tailwind utilities;
 
 
+.liked {
+    color: pink;
+  }

@@ -8,6 +8,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ThreadController;
 use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\ShopController;
+use App\Http\Controllers\User\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,10 @@ use App\Http\Controllers\User\ShopController;
 Route::middleware('auth:users')->group(function(){
         Route::get('/items', [ItemController::class,'index'])->name('items.index');
         Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
-});
+        // Route::post('/items/show',[LikeController::class, 'show'])->name('items.show');
+        Route::post('/items/like',[LikeController::class, 'like'])->name('items.like');
+
+    });
 
 Route::prefix('cart')->middleware('auth:users')->group(function(){
         Route::get('/', [CartController::class,'index'])->name('cart.index');
