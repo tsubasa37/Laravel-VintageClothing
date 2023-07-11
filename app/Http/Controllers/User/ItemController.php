@@ -44,10 +44,7 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
-        $Products = Product::withCount('likes')->orderBy('id', 'desc')->paginate(10);
-        $param = [
-            'Products' => $Products,
-        ];
+
 
         return view('user.items.index',
         compact('products','categories'));

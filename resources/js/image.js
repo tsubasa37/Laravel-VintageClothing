@@ -13,13 +13,13 @@ import 'swiper/css/pagination';
 Swiper.use([Navigation, Pagination, Autoplay]);
 
  // init Swiper:
-const swiper = new Swiper('.p-swiper-container', {
+const swiper = new Swiper('.swiper', {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
  // If we need pagination
     autoplay: {
-        delay: 5000, // ４秒後に次の画像へ
+        delay: 6000, // ４秒後に次の画像へ
         disableOnInteraction: false, // ユーザー操作後に自動再生を再開する
     },
     speed: 2000, // ２秒かけながら次の画像へ移動
@@ -49,3 +49,7 @@ $(function() {
       $(this).children('.admin-menu-list').stop().slideToggle();
     });
   });
+
+
+
+  

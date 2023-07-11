@@ -3,7 +3,7 @@
         <div class="flex question_header">
             <div>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    質問一覧
+                    店舗一覧
                 </h2>
             </div>
         </div>

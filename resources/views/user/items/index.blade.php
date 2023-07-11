@@ -55,40 +55,38 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex flex-wrap">
-                        @foreach ($products as $product)
-                            <div class="w-1/4 p-2 md:p-4">
-                                <div class="border rounded-md p-2 md:p-4">
-                                    <a href="{{ route('user.items.show',['item' => $product->id]) }}">
-                                        <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
-                                        <div class="text-gray-700 pt-2">
-                                            {{ $product->name}}
-                                        </div>
-                                        <div class="mt-4">
-                                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
-                                            <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
-                                            <p class="mt-1">{{ number_format($product->price)}} <span class="text-sm text-gray-700">円(税込)</span></p>
-                                        </div>
-                                    </a>
+                        @if(count($products) > 0)
+                            @foreach ($products as $product)
+                                <div class="w-1/4 p-2 md:p-4">
+                                    <div class="border rounded-md p-2 md:p-4">
+                                        <a href="{{ route('user.items.show',['item' => $product->id]) }}">
+                                            <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
+                                            <div class="text-gray-700 pt-2">
+                                                {{ $product->name}}
+                                            </div>
+                                            <div class="mt-4">
+                                                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
+                                                <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
+                                                <p class="mt-1">{{ number_format($product->price)}} <span class="text-sm text-gray-700">円(税込)</span></p>
+                                            </div>
+                                        </a>
 
-                                    @auth
-                                        <!-- product.phpに作ったisLikedByメソッドをここで使用 -->
-                                        @if (!$product->isLikedBy(Auth::user()))
-                                            <span class="likes">
-                                            <i class="far fa-heart like-toggle" data-product-id="{{ $product->id }}"></i>
-                                            <span class="like-counter">{{$product->likes_count}}</span>
-                                            </span><!-- /.likes -->
-                                        @else
-                                            <span class="likes">
-                                            <i class="far fa-heart heart like-toggle liked" data-product-id="{{ $product->id }}"></i>
-                                            <span class="like-counter">{{$product->likes_count}}</span>
-                                            </span><!-- /.likes -->
-                                        @endif
+                                        @auth
+                                            <button class="favorite-button" data-product-id="{{ $product->id }}">
+                                                @if ($product->isLikedBy(Auth::user()))
+                                                    <i class="fas fa-heart liked"></i>
+                                                @else
+                                                    <i class="far fa-heart"></i>
+                                                @endif
+                                            </button>
+                                        @endauth
 
-                                    @endauth
-
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p>商品がありません</p>
+                        @endif
                         {{$products->appends([
                             'sort' => \Request::get('sort'),
                             'pagination' => \Request::get('pagination')

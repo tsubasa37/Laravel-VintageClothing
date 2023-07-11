@@ -17,10 +17,9 @@
 
 <div class="py-12">
     <div class="flex mj">
-    <div class="ml-10 question-post-btn">
-        <a href="{{ route('user.questions.create') }}" class="question-page-signUp-btn post-btn">質問を投稿する！</a>
-    </div>
-
+        <div class="ml-10 question-post-btn">
+            <a href="{{ route('user.questions.create') }}" class="question-page-signUp-btn post-btn">質問を投稿する！</a>
+        </div>
     </div>
 
 

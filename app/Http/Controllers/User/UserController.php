@@ -15,8 +15,11 @@ class UserController extends Controller
     public function index(){
         // 新しい順にゲットするように変更
         $products = Product::AvailableItems()->paginate(8);
+
+        $likedProducts = Product::AvailableItems()->whereHas('likes')->get();
+        // dd($likedProducts);
         // dd($products);
-        return view('user.index', compact('products'));
+        return view('user.index', compact('products','likedProducts'));
     }
 
     public function edit()
