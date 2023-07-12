@@ -15,12 +15,20 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $shops = Shop::all();
+        $criteria = $request->input('criteria');
+        // dd($criteria);
+        if(!is_null($criteria))
+        {
+            $shop = Shop::whereIn('prefecture', $criteria)->get();
+            dd($shop);
+        }
+        $categories = ShopCategory::all();
+        $shops = Shop::searchKeyword($request->storeName)->get();
+
+
 
         // dd($threads);
-
-        // dd($threads);
-        return view('user.shops.index', compact('shops'));
+        return view('user.shops.index', compact('shops','categories'));
     }
 
     /**
@@ -46,7 +54,11 @@ class ShopController extends Controller
     {
         $shop = Shop::find($id);
         // dd($products);
-        $shopCategories = ShopCategory::all();
+        $shopCategories = $shop->shopCategory;
+        // dd($categories);
+
+        // $shopCategories = ShopCategory::where('shop_categories.id','=',$categories)->get();
+        // dd($shopCategories);
         // $products = Product::all()->where('products.shop_id','=',$id);
         // dd($products);
 

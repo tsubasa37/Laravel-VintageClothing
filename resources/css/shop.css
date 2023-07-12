@@ -99,8 +99,14 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     opacity: 0.6;
-
-
+}
+.shopCategoryArea {
+    margin-left: 50px;
+}
+.shop-list-category {
+    overflow: hidden;
+    opacity: 0.6;
+    margin-left: 2%;
 
 }
 @media screen and (max-width:800px) {

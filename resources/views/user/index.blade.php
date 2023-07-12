@@ -24,12 +24,42 @@
         </div>
     <!-- 検索ボックス -->
 
-        <div class="search">
+        <div class="search ">
             <form action="{{ route('user.shops.index') }}" method="get" class="search">
-                <div class=" shop__search">
-                    <div class="flex shop__search__area">
-                        <input name="Area" type="text" placeholder="エリア(例)東京">
+                <label>
+                    <input type="checkbox" name="criteria[]" value="群馬">
+                    群馬
+                </label>
+                <label>
+                    <input type="checkbox" name="criteria[]" value="東京">
+                    東京
+                </label>
+
+                    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+                        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                                <header class="modal__header">
+                                    <h2 class="modal__title" id="modal-1-title">
+                                        説明
+                                    </h2>
+                                    <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                                </header>
+                                <main class="modal__content" id="modal-1-content">
+                                    <p>
+                                        テキストを入力する際、タグを使用することでデザインできます。<br>タグでテキストを囲むと囲んだ場所だけ反映されます。
+                                    </p>
+                                </main>
+                                <footer class="modal__footer">
+                                    <button type="button" class="modal__btn" data-micromodal-close aria-label="Close this dialog window">閉じる</button>
+                                </footer>
+                            </div>
+                        </div>
                     </div>
+                    <div class="flex w-1/2 mx-auto">
+                    <div class="p-2 mt-2 text-end">
+                        <a class="text-white bg-blue-500 border-0 py-3 px-2 focus:outline-none hover:bg-blue-600 rounded" data-micromodal-trigger="modal-1" href='javascript:;'>タグの使用方法</a>
+                    </div>
+                    <div class=" shop__search">
                     <div class="flex search__store">
                         <input name="storeName" type="text" placeholder="店舗名">
                     </div>
@@ -38,33 +68,9 @@
                         <input type="hidden" name="type" value="search">
                     </div>
                 </div>
+            </div>
             </form>
         </div>
-
-        <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                    <header class="modal__header">
-                        <h2 class="modal__title" id="modal-1-title">
-                            説明
-                        </h2>
-                        <button type="button" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                    </header>
-                    <main class="modal__content" id="modal-1-content">
-                        <p>
-                            テキストを入力する際、タグを使用することでデザインできます。<br>タグでテキストを囲むと囲んだ場所だけ反映されます。
-                        </p>
-                    </main>
-                    <footer class="modal__footer">
-                        <button type="button" class="modal__btn" data-micromodal-close aria-label="Close this dialog window">閉じる</button>
-                    </footer>
-                </div>
-            </div>
-        </div>
-        <div class="p-2 w-1/2 mx-auto text-end">
-            <a class="text-white bg-blue-500 border-0 py-2 px-2 focus:outline-none hover:bg-blue-600 rounded" data-micromodal-trigger="modal-1" href='javascript:;'>タグの使用方法</a>
-        </div>
-
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -155,4 +161,7 @@
         @vite(['resources/js/image.js'])
         @vite(['resources/js/productSwiper.js'])
 
+        <script>
+
+        </script>
 </x-app-layout>

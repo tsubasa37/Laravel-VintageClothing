@@ -48,9 +48,9 @@
 /* index.htmlの検索ボックス */
 .shop__search {
     display: flex;
-    margin-top: 50px;
-    margin-left: 25%;
-    width: 600px;
+    /* margin-top: 50px; */
+    /* margin-left: 25%; */
+    /* width: 600px; */
     border:0.1px solid #000;
     box-shadow: 2px 2px 4px gray ;
     z-index: 5;
