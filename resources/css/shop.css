@@ -456,3 +456,21 @@
 	text-decoration: none;
 	font-size: 125%;
 }
+
+.shop-search-list {
+    display: flex;
+    flex-wrap:wrap;
+    gap: 4px;
+}
+
+.shop-search-list > * {
+    flex-grow:1;
+}
+.shop-search-list select {
+    flex-basis: 100px;
+    border-radius: 5px;
+    border: 1px solid #a3a2a267;
+}
+.shop-search-list button {
+    flex-basis: 260px;
+}

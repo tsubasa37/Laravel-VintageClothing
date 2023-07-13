@@ -34,15 +34,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-{{--
-            @if ($uriPrefix === 'admin')
-                @include('layouts.admin-navigation')
-            @elseif ($uriPrefix === 'owner')
-                @include('layouts.owner-navigation')
-            @else
-                @include('layouts.user-navigation')
-            @endif --}}
+        <div class="min-h-screen dark:bg-gray-900">
             @if (request()->is('admin*'))
                 @include('layouts.admin-navigation')
             @elseif (request()->is('owner*'))

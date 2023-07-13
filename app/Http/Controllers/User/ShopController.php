@@ -15,15 +15,14 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $criteria = $request->input('criteria');
-        // dd($criteria);
-        if(!is_null($criteria))
-        {
-            $shop = Shop::whereIn('prefecture', $criteria)->get();
-            dd($shop);
+        $prefecture = $request->input('prefecture');
+        if(!is_null($prefecture)){
+            $shops = Shop::whereIn('prefecture',$prefecture)->searchKeyword($request->storeName)->paginate(20);
+        } else {
+            $shops = Shop::searchKeyword($request->storeName)->paginate(20);
         }
-        $categories = ShopCategory::all();
-        $shops = Shop::searchKeyword($request->storeName)->get();
+            $categories = ShopCategory::all();
+        // dd($shops);
 
 
 

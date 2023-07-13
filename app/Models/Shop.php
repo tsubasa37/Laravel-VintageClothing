@@ -48,16 +48,6 @@ class Shop extends Model
         return $this->belongsToMany(ShopCategory::class,'selection_categories')->withTimestamps();
     }
 
-    // public function scopeAvailableItems($query)
-    // {
-    //     // DB::table('shops')
-    //     $query
-    //         ->join('selection_categories','selection_categories.shop_id', '=','shops.id')
-    //         ->select('shops.id','shops.owner_id','shops.name','shops.image1 as filename',
-    //         'selection_categories.shop_category_id as shopCategory','shops.prefecture as prefecture',
-    //         'shops.City as city','shops.address as address');
-    // }
-
 
     public function scopeSearchKeyword($query,$storeName)
     {
@@ -72,15 +62,27 @@ class Shop extends Model
             return;
         }
     }
-
-    public function scopeSelectPrefecture($query, $categoryId)
+    public function scopeSearchPrefecture($query,$prefecture)
     {
-        if($categoryId !== '0')
-        {
-            return $query->where('secondary_category_id', $categoryId);
+        if(!is_null($prefecture)){
+            foreach($prefecture as $word){
+                $query->where('shops.prefecture','like','%'.$word.'%');
+            }
+            return $query;
         } else {
             return;
         }
+    }
+
+    // public function scopeSelectPrefecture($query, $categoryId)
+    // {
+    //     if($categoryId !== '0')
+    //     {
+    //         return $query->where('secondary_category_id', $categoryId);
+    //     } else {
+    //         return;
+    //     }
+    // }
 
 
 }

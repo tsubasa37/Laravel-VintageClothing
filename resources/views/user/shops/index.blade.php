@@ -4,13 +4,14 @@
             店舗一覧
         </h2>
         <form action="{{ route('user.shops.index') }}" method="get">
-            <div class="lg:flex lg:justify-around">
+            <div class="lg:flex lg:justify-end">
                 <div class="lg:flex items-center">
-                    <div class="flex space-x-2 items-center">
+                    <div class="space-x-2 items-center shop-search-list">
                         <div>
-                            <input name="storeName" class="border border-gray-500 py-2" placeholder="店舗名の入力">
-                        </div>
-                        <div>
+                            <select>
+                                <option value="">選択</option>
+                            </select>
+                            <input name="storeName" class=" border border-gray-500 py-2" placeholder="店舗名の入力">
                             <button  class="ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">検索する</button>
                         </div>
                     </div>

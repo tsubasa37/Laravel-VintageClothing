@@ -41,7 +41,12 @@
                                     <h5 class="card-title">
                                         投稿者:{{ $thread->user->name }}
                                     </h5>
-                                    <p class="card-text thread-content">{{ $thread->content }}</p>
+                                    <div class="read-more-002">
+                                        <p class="card-text thread-content">{{ $thread->content }}</p>
+                                        <label>
+                                            ...続きを読む
+                                        </label>
+                                    </div>
                                 </div>
                                 @if(Auth::user()->id == $thread->user->id)
                                     <form id="delete_{{ $thread->id }}" action="{{ route('user.questions.delete', ['thread' => $thread->id ]) }}" method="post" class="thread-delete flex">

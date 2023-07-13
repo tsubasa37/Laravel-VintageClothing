@@ -48,9 +48,6 @@
 /* index.htmlの検索ボックス */
 .shop__search {
     display: flex;
-    /* margin-top: 50px; */
-    /* margin-left: 25%; */
-    /* width: 600px; */
     border:0.1px solid #000;
     box-shadow: 2px 2px 4px gray ;
     z-index: 5;
@@ -191,13 +188,13 @@
     background:#eee;
     }
 
-.merchandise {
+.merchandise-txt {
     font-size: 20px;
     position: relative;
     padding: 0.6em;
     background: #e0edff;
 }
-.merchandise:after {
+.merchandise-txt:after {
     position: absolute;
     content: '';
     top: 100%;
@@ -206,7 +203,13 @@
     border-top: 15px solid #e0edff;
     width: 0;
     height: 0;
-    }
+}
+.merchandise svg {
+    position: absolute;
+    margin-top: 10px;
+    right: 150px;
+    z-index: 10;
+}
 
 
 /* 都道府県ツリー */
@@ -256,3 +259,180 @@
 .active {
     display: block;
 }
+
+
+.works_list{
+    width: 70%;
+    margin: 0 auto;
+}
+.list-box {
+    margin: 40px 0;
+}
+
+.works_item {
+    list-style: none;
+    position: relative;
+    /* width: 200px; */
+    /* padding: 10px; */
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 auto;
+    border: 0.5px solid #2e4ae8;
+
+    /* background-color: #5bb6f3; */
+}
+.works_modal_open {
+    /* height: 100px; */
+
+    text-align: center;
+}
+.works_image_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgb(103, 206, 244);
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.mask_text {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+/* .works_modal_content{
+    text-align: center;
+} */
+.works_modal_content label{
+    margin: 20px;
+    font-size: 20px;
+}
+.works_image:hover .works_image_mask {
+    opacity: 1;
+    padding-top: 13%;
+}
+/* ------works_modal css------ */
+.works_modal_wrapper {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    opacity: 0;
+    z-index: -1;
+}
+.works_modal_window {
+    width: 40vw;
+    max-width: 1000px;
+    height: 50vh;
+    margin: auto;
+    padding: 15px;
+    background: #fff;
+    z-index: 1;
+    overflow-y: hidden;
+}
+.works_modal_content {
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+}
+.works_modal_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+.works_modal_close {
+    z-index: 300;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #808080;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.works_modal_close:hover {
+    color: #000;
+    transition: all .5s;
+}
+html.is_open, body.is_open {
+    overflow: hidden;
+}
+.works_modal_wrapper.is_open {
+    animation: works_modal_wrapper_open .5s ease forwards;
+}
+.works_modal_wrapper.is_open .works_modal_window {
+    animation: works_modal_window_open .5s ease forwards;
+}
+.works_modal_wrapper.is_close {
+    animation: works_modal_wrapper_close .5s ease forwards;
+}
+.works_modal_wrapper.is_close .works_modal_window {
+    animation: works_modal_window_close .5s ease forwards;
+}
+
+@keyframes works_modal_wrapper_open {
+    0% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    z-index: 300;
+    }
+}
+@keyframes works_modal_window_open {
+    0% {
+    opacity: 0;
+    transform: translateY(-30px);
+    }
+    100% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+@keyframes works_modal_wrapper_close {
+    0% {
+    z-index: 300;
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+}
+@keyframes works_modal_window_close {
+    0% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    100% {
+    transform: translateY(-30px);
+    opacity: 0;
+    }
+}
+
+.prefectures-txtArea {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    border:0.1px solid #000;
+    box-shadow: 2px 2px 4px gray ;
+    z-index: 5;
+    padding: 13px;
+}
+

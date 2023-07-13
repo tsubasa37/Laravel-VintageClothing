@@ -114,7 +114,7 @@ class CartController extends Controller
     {
         Cart::where('user_id', Auth::id())->delete();
 
-        return redirect()->route('user.shop.index');
+        return redirect()->route('user.shops.index');
     }
 
     public function cancel()
