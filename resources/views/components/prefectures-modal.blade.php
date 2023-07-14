@@ -297,8 +297,8 @@
                     <div class="works_modal_window">
                         <div class="works_modal_content">
                             <label>
-                                <input type="checkbox" name="prefecture[]" value="福島">
-                                福島県
+                                <input type="checkbox" name="prefecture[]" value="福岡">
+                                福岡県
                             </label>
                             <label>
                                 <input type="checkbox" name="prefecture[]" value="佐賀">

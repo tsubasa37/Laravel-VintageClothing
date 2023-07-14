@@ -28,6 +28,7 @@ use App\Http\Controllers\User\LikeController;
 Route::middleware('auth:users')->group(function(){
         Route::get('/items', [ItemController::class,'index'])->name('items.index');
         Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
+        Route::get('/items/favorite',[ItemController::class, 'favorite'])->name('items.favorite');
         // Route::post('/items/show',[LikeController::class, 'show'])->name('items.show');
         // Route::post('/items/like',[LikeController::class, 'like'])->name('items.like');
         Route::post('/favorite', [LikeController::class,'toggleFavorite'])->name('favorite.toggle');

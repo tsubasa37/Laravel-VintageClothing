@@ -15,15 +15,35 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $prefecture = $request->input('prefecture');
-        if(!is_null($prefecture)){
-            $shops = Shop::whereIn('prefecture',$prefecture)->searchKeyword($request->storeName)->paginate(20);
-        } else {
-            $shops = Shop::searchKeyword($request->storeName)->paginate(20);
-        }
-            $categories = ShopCategory::all();
+        // $prefecture = $request->input('prefecture');
+        // dd($prefecture);
+        // if(!is_null($prefecture)){
+        //     $shops = Shop::whereIn('prefecture',$prefecture)->searchKeyword($request->storeName)->paginate(20);
+        // } else {
+        //     $shops = Shop::searchKeyword($request->storeName)->paginate(20);
+        // }
+        // if (!is_null($prefecture) && is_array($prefecture)) {
+        //     $shops = Shop::whereIn('prefecture', $prefecture)->searchKeyword($request->storeName)->paginate(20);
+        // } else {
+        //     $shops = Shop::searchKeyword($request->storeName)->paginate(20);
+        // }
+        //     $categories = ShopCategory::all();
         // dd($shops);
+        $prefecture = $request->input('prefecture');
+        $storeName = $request->input('storeName');
 
+        $query = Shop::query();
+
+        if (!is_null($prefecture) && $prefecture !== '') {
+            $query->where('prefecture', $prefecture);
+        }
+
+        if (!is_null($storeName) && $storeName !== '') {
+            $query->where('name', 'LIKE', '%' . $storeName . '%');
+        }
+
+        $shops = $query->paginate(20);
+        $categories = ShopCategory::all();
 
 
         // dd($threads);

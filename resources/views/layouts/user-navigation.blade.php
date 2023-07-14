@@ -60,7 +60,7 @@
                         <x-dropdown-link :href="route('user.profile.index')">
                             マイページ
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('user.profile.index')">
+                        <x-dropdown-link :href="route('user.items.favorite')">
                             お気に入り
                         </x-dropdown-link>
 

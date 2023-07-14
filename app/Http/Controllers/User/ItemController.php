@@ -66,6 +66,14 @@ class ItemController extends Controller
     }
 
 
+    public function favorite(Request $request)
+    {
+        $likedProducts = Product::AvailableItems()->whereHas('likes')->paginate(10);
+
+        return view('user.items.favorite', compact('likedProducts'));
+    }
+
+
 
 
 
