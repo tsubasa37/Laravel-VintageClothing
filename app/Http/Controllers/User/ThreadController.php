@@ -73,8 +73,10 @@ class ThreadController extends Controller
     public function show(string $id)
     {
         $thread = Thread::find($id);
+
         // $comments = Comment::select('*')->where('thread_id','=',$id)->orderBy('created_at','desc')->get();
-        $comments = Comment::select('*')->where('thread_id','=',$id)->paginate(3);
+        $comments = Comment::select('*')->where('thread_id','=',$id)->paginate(10);
+
         // dd($comments[1]->user->id);
 
 
@@ -102,7 +104,7 @@ class ThreadController extends Controller
      */
     public function delete(string $id)
     {
-       Thread::where('threads.id', $id)
+        Thread::where('threads.id', $id)
         ->delete();
 
         return redirect()

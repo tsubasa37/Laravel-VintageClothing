@@ -1,5 +1,9 @@
+.shop-link-btn {
+    justify-content: center;
+}
+
 .shop-link-btn:hover {
-    color: blue;
+    color: rgb(74, 147, 237);
 }
 
 .wrapper {
@@ -424,8 +428,7 @@
     margin: auto;
 }
 
-
-
+/* タブの切り替え */
 #tab_menu {
 	display: flex;
     width: min(100% - 2rem, 60%);
@@ -473,4 +476,10 @@
 }
 .shop-search-list button {
     flex-basis: 260px;
+}
+
+/* ---- */
+.shop-disp-noItems p {
+    font-size: 17px;
+    margin: 20px 0  50px 30px;
 }

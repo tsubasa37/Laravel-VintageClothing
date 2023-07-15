@@ -58,7 +58,7 @@
                             @if (count($likedProducts) > 0)
                                 @foreach ($likedProducts as $likedProduct)
                                     <div class="swiper-slide">
-                                        <div class="border rounded-md p-2 md:p-4">
+                                        <div class="border test rounded-md p-2 md:p-4">
                                             <a href="{{ route('user.items.show', ['item' => $likedProduct->id]) }}">
                                                 <x-thumbnail filename="{{ $likedProduct->filename ?? '' }}"
                                                     type="products" />
@@ -70,8 +70,7 @@
                                                         {{ $likedProduct->category }}</h3>
                                                     <h2 class="text-gray-900 title-font text-lg font-medium">
                                                         {{ $likedProduct->name }}</h2>
-                                                    <p class="mt-1">{{ number_format($likedProduct->price) }} <span
-                                                            class="text-sm text-gray-700">円(税込)</span></p>
+                                                    <p class="mt-1">￥{{ number_format($likedProduct->price) }}</p>
                                                 </div>
                                             </a>
                                         </div>
@@ -111,7 +110,7 @@
                             @if (count($products) > 0)
                                 @foreach ($products as $product)
                                     <div class="swiper-slide">
-                                        <div class="border rounded-md p-2 md:p-4">
+                                        <div class="border test rounded-md p-2 md:p-4">
                                             <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                                 <x-thumbnail filename="{{ $product->filename ?? '' }}"
                                                     type="products" />
@@ -123,8 +122,7 @@
                                                         {{ $product->category }}</h3>
                                                     <h2 class="text-gray-900 title-font text-lg font-medium">
                                                         {{ $product->name }}</h2>
-                                                    <p class="mt-1">{{ number_format($product->price) }} <span
-                                                            class="text-sm text-gray-700">円(税込)</span></p>
+                                                    <p class="mt-1">￥{{ number_format($product->price) }}</p>
                                                 </div>
                                             </a>
                                         </div>

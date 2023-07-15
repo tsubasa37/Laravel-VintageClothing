@@ -9,7 +9,7 @@ Swiper.use([Navigation, Pagination]);
 
  // init Swiper:
 const swiper = new Swiper('.productSwiper', {
-    slidesPerView: 4,
+    slidesPerView: 3,
     spaceBetween: 30,
     loop: false,
  // If we need pagination
@@ -32,6 +32,11 @@ const swiper = new Swiper('.productSwiper', {
     scrollbar: {
     el: '.productSwiper-scrollbar',
     },
+    breakpoints:{
+        500:{
+            slidesPerView: 4,
+        }
+    }
 });
 
 

@@ -1,6 +1,6 @@
 <div>
     <select name="prefecture">
-        <option value="">選択してください</option>
+        <option value="">全国</option>
         <option value="北海道" @if (\Request::get('prefecture') == '北海道') selected @endif>北海道</option>
         <optgroup label="東北地方">
             <option value="青森" @if (\Request::get('prefecture') == '青森') selected @endif>青森</option>
@@ -47,20 +47,20 @@
             <option value="山口" @if (\Request::get('prefecture') == '山口') selected @endif>山口</option>
         </optgroup>
         <optgroup label="四国地方">
-            <option value="香川">香川</option>
-            <option value="徳島">徳島</option>
-            <option value="高知">高知</option>
-            <option value="愛媛">愛媛</option>
+            <option value="香川" @if (\Request::get('prefecture') == '香川') selected @endif>香川</option>
+            <option value="徳島" @if (\Request::get('prefecture') == '徳島') selected @endif>徳島</option>
+            <option value="高知" @if (\Request::get('prefecture') == '高知') selected @endif>高知</option>
+            <option value="愛媛" @if (\Request::get('prefecture') == '愛媛') selected @endif>愛媛</option>
         </optgroup>
         <optgroup label="九州地方">
-            <option value="福岡">福岡</option>
-            <option value="大分">大分</option>
-            <option value="佐賀">佐賀</option>
-            <option value="長崎">長崎</option>
-            <option value="宮城">宮城</option>
-            <option value="熊本">熊本</option>
-            <option value="鹿児島">鹿児島</option>
-            <option value="沖縄">沖縄</option>
+            <option value="福岡" @if (\Request::get('prefecture') == '徳島') selected @endif>福岡</option>
+            <option value="大分" @if (\Request::get('prefecture') == '大分') selected @endif>大分</option>
+            <option value="佐賀" @if (\Request::get('prefecture') == '佐賀') selected @endif>佐賀</option>
+            <option value="長崎" @if (\Request::get('prefecture') == '長崎') selected @endif>長崎</option>
+            <option value="宮城" @if (\Request::get('prefecture') == '宮城') selected @endif>宮城</option>
+            <option value="熊本" @if (\Request::get('prefecture') == '熊本') selected @endif>熊本</option>
+            <option value="鹿児島" @if (\Request::get('prefecture') == '鹿児島') selected @endif>鹿児島</option>
+            <option value="沖縄" @if (\Request::get('prefecture') == '沖縄') selected @endif>沖縄</option>
         </optgroup>
     </select>
     <input name="storeName" class=" border border-gray-500 py-2" placeholder="店舗名の入力">

@@ -49,16 +49,8 @@ Route::post('/questions/search', [ThreadController::class, 'search'])->name('que
 Route::post('questions/delete/{thread}', [ThreadController::class,'delete'])->name('questions.delete');
 Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
-Route::post('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
-// Route::get('/question', [ThreadController::class, 'index'])->name('question.index');
-// Route::get('/question/show/{thread}', [ThreadController::class, 'show'])->name('question.show');
-// Route::get('/question/create', [ThreadController::class, 'create'])->name('question.create');
-// Route::post('/question/store', [ThreadController::class, 'store'])->name('question.store');
-// Route::resource('/questions', 'ThreadController',  ['except' => ['index']]);
-// Route::resource('/comments', 'CommentController')->middleware('auth');
-// Route::get('/dashboard', function () {
-//     return view('user.dashboard');
-// })->middleware(['auth:users', 'verified'])->name('dashboard');
+Route::delete('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
+
 
 Route::resource('shops', ShopController::class);
 
