@@ -20,17 +20,17 @@
                 @if(count($shops) > 0)
                     @foreach ($shops as $shop)
                         <a href="{{ route('user.shops.show', ['shop' => $shop->id ]) }}">
-                            <div class="shadow flex shop-wrapper">
+                            <div class="shadow shop-wrapper">
                                 <div class="pc-shop-list">
                                     <div class="shop-list-img js-main-img">
                                         <x-thumbnail :filename="$shop->image1" type="shops" />
                                     </div>
                                 </div>
-                                <div class="mobile-shop-list">
+                                {{-- <div class="mobile-shop-list">
                                     <div class="mobile-shop-list-img">
                                         <img src="" onerror="this.style.display='none'" alt="">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="shop-list">
                                     <div class="shop-list-name">
                                         <h1>{{ $shop->name }}</h1>
@@ -38,7 +38,7 @@
                                     <div class="shop-list-address">
                                         <p>住所：{{ $shop->prefecture }}{{ $shop->City }}{{ $shop->address }}</p>
                                     </div>
-                                    <div class="flex shopCategoryArea">
+                                    <div class=" shopCategoryArea">
                                         @foreach ($shop->shopCategory as $category)
                                             <div class="shop-list-category">
                                                 <p>{{ $category->name }}</p>

@@ -29,11 +29,6 @@
 
     <div class="search ">
         <form action="{{ route('user.shops.index') }}" method="get" class="search">
-            <p class="w-1/2 mx-auto">エリア</p>
-            <div class="flex w-1/2 mx-auto">
-                <div class="prefectures-txtArea">
-                    <p class="result4 w-2xl"></p>
-                </div>
                 <div class="shop__search">
                     <div class="flex search__store">
                         <input name="storeName" type="text" placeholder="店舗名">
@@ -43,7 +38,6 @@
                         <input type="hidden" name="type" value="search">
                     </div>
                 </div>
-            </div>
             <x-prefectures-modal/>
         </form>
     </div>

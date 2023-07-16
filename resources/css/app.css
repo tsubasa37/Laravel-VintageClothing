@@ -18,3 +18,11 @@
     width: 100%;
 
 }
+
+.nav_modal {
+    padding:0 100px;
+}
+.nav_modal a{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
