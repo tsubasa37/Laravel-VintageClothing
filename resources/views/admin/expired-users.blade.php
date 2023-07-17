@@ -16,10 +16,18 @@
                                 <table class="table-auto w-full text-left whitespace-no-wrap">
                                     <thead>
                                         <tr>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">名前</th>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メールアドレス</th>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">期限が切れた日</th>
-                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
+                                                名前</th>
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                                                メールアドレス</th>
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                                                期限が切れた日</th>
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -28,10 +36,14 @@
                                                 <td class="px-4 py-3">{{ $user->name }}</td>
                                                 <td class="px-4 py-3">{{ $user->email }}</td>
                                                 <td class="px-4 py-3">{{ $user->deleted_at->diffForHumans() }}</td>
-                                                <form id="delete_{{$user->id}}" action="{{ route('admin.expired-users.destroy',['user' => $user->id]) }}" method="POST">
+                                                <form id="delete_{{ $user->id }}"
+                                                    action="{{ route('admin.expired-users.destroy', ['user' => $user->id]) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <td class="px-4 py-3">
-                                                        <a href="#" data-id="{{ $user->id }}" onclick="deletePost(this)" class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded">完全削除</a>
+                                                        <a href="#" data-id="{{ $user->id }}"
+                                                            onclick="deletePost(this)"
+                                                            class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded">完全削除</a>
                                                     </td>
                                                 </form>
                                             </tr>
@@ -40,22 +52,12 @@
                                 </table>
                             </div>
                         </div>
-                        </section>
-                    {{-- え
-                    @foreach ($e_all as $e_owner)
-                        {{ $e_owner->name }}
-                        {{ $e_owner->created_at->diffForHumans() }}
-                    @endforeach
-                    <br>
-                    く
-                    @foreach ($q_get as $q_owner)
-                        {{ $q_owner->name}}
-                        {{ $q_owner->created_at }}
-                    @endforeach --}}
+                    </section>
                 </div>
             </div>
         </div>
     </div>
+    @vite(['resources/js/flash-message.js'])
     <script>
         function deletePost(e) {
             'use strict';
@@ -63,5 +65,5 @@
                 document.getElementById('delete_' + e.dataset.id).submit();
             }
         }
-        </script>
+    </script>
 </x-app-layout>

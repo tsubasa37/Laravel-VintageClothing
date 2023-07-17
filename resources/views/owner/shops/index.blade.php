@@ -33,4 +33,5 @@
             </div>
         </div>
     </div>
+    @vite(['resources/js/flash-message.js'])
 </x-app-layout>

@@ -10,7 +10,7 @@ Swiper.use([Navigation, Pagination]);
  // init Swiper:
 const swiper = new Swiper('.productSwiper', {
     slidesPerView: 3,
-    spaceBetween: 30,
+    spaceBetween: 10,
     loop: false,
  // If we need pagination
     // autoplay: {
@@ -35,6 +35,7 @@ const swiper = new Swiper('.productSwiper', {
     breakpoints:{
         500:{
             slidesPerView: 4,
+            spaceBetween: 30,
         }
     }
 });

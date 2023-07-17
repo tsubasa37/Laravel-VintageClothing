@@ -24,13 +24,21 @@ use App\Http\Controllers\User\LikeController;
 // Route::get('/', function () {
 //     return view('user.welcome');
 // });
+Route::get('/', [UserController::class,'index'])->name('index');
+
+Route::middleware('auth:users')->group(function () {
+    Route::get('profile.edit', [UserController::class, 'edit'])->name('profile.index');
+    Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 Route::get('/items', [ItemController::class,'index'])->name('items.index');
 Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
 Route::middleware('auth:users')->group(function(){
     Route::get('/items/favorite',[ItemController::class, 'favorite'])->name('items.favorite');
     Route::post('/favorite', [LikeController::class,'toggleFavorite'])->name('favorite.toggle');
-
 });
 
 Route::prefix('cart')->middleware('auth:users')->group(function(){
@@ -44,20 +52,16 @@ Route::prefix('cart')->middleware('auth:users')->group(function(){
 
 Route::resource('questions', ThreadController::class);
 Route::post('/questions/search', [ThreadController::class, 'search'])->name('questions.search');
-Route::post('questions/delete/{thread}', [ThreadController::class,'delete'])->name('questions.delete');
-Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
-Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
-Route::delete('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
-
+Route::middleware('auth:users')->group(function () {
+    Route::post('questions/delete/{thread}', [ThreadController::class,'delete'])->name('questions.delete');
+    Route::get('/comments/create', [CommentController::class, 'create'])->name('comment.create');
+    Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.store');
+    Route::delete('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
+    Route::post('/comments/delete/{comment}', [CommentController::class, 'delete'])->name('comment.delete');
+});
 
 Route::resource('shops', ShopController::class);
 
-Route::get('/', [UserController::class,'index'])->name('index');
-Route::middleware('auth:users')->group(function () {
-    Route::get('profile.edit', [UserController::class, 'edit'])->name('profile.index');
-    Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 require __DIR__.'/auth.php';

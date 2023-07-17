@@ -1,6 +1,6 @@
 <div class="prefecture-list-area">
     <h1 class="prefecture-list-area-headline">エリア検索</h1>
-    <ul class="prefecture-list flex">
+    <ul class="prefecture-list ">
         <li class="Tohoku-list">
             <p>北海道・東北</p>
             <label>
@@ -64,7 +64,7 @@
             </label>
         </li>
     </ul>
-    <ul class="prefecture-list flex">
+    <ul class="prefecture-list">
         <li class="Chubu-list">
             <p>中部</p>
             <label>
@@ -136,7 +136,7 @@
             </label>
         </li>
     </ul>
-    <ul class="prefecture-list flex">
+    <ul class="prefecture-list">
         <li class="China-list">
             <p>中国</p>
             <label>
@@ -180,7 +180,7 @@
             </label>
         </li>
     </ul>
-    <ul class="prefecture-list flex">
+    <ul class="prefecture-list">
         <li class="China-list">
             <p>九州</p>
             <label>

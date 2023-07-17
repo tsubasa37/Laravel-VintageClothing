@@ -54,6 +54,7 @@
             </div>
         </div>
     </div>
+    @vite(['resources/js/flash-message.js'])
     <script>
         function deletePost(e) {
             'use strict';

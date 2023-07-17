@@ -78,6 +78,7 @@
         {{ $threads->links() }}
     </div>
 </div>
+@vite(['resources/js/flash-message.js'])
 
     <script>
             function deletePost(e) {
@@ -86,5 +87,8 @@
                     document.getElementById('delete_' + e.dataset.id).submit();
                 }
             }
+    </script>
+    <script>
+
     </script>
 </x-app-layout>

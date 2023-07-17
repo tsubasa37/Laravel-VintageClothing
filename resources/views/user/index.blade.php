@@ -38,7 +38,7 @@
                     <input type="hidden" name="type" value="search">
                 </div>
             </div>
-            <x-prefectures-modal />
+            <x-prefectures-list />
         </form>
     </div>
 
@@ -108,7 +108,7 @@
                             @if (count($products) > 0)
                                 @foreach ($products as $product)
                                     <div class="swiper-slide">
-                                        <div class="border test rounded-md p-2 md:p-4">
+                                        <div class="border product-w rounded-md p-2 md:p-4">
                                             <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                                 <x-thumbnail filename="{{ $product->filename ?? '' }}"
                                                     type="products" />
