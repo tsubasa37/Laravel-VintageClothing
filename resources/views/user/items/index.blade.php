@@ -87,6 +87,9 @@
                                                     @endif
                                                 </button>
                                             @endauth
+                                            @guest
+                                                <a href="{{ route('user.login') }}"><i class="far fa-heart"></a></i>
+                                            @endguest
                                         </div>
 
                                     </div>

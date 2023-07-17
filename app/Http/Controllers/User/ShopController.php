@@ -15,20 +15,7 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        // $prefecture = $request->input('prefecture');
-        // dd($prefecture);
-        // if(!is_null($prefecture)){
-        //     $shops = Shop::whereIn('prefecture',$prefecture)->searchKeyword($request->storeName)->paginate(20);
-        // } else {
-        //     $shops = Shop::searchKeyword($request->storeName)->paginate(20);
-        // }
-        // if (!is_null($prefecture) && is_array($prefecture)) {
-        //     $shops = Shop::whereIn('prefecture', $prefecture)->searchKeyword($request->storeName)->paginate(20);
-        // } else {
-        //     $shops = Shop::searchKeyword($request->storeName)->paginate(20);
-        // }
-        //     $categories = ShopCategory::all();
-        // dd($shops);
+
         $prefecture = $request->input('prefecture');
         $storeName = $request->input('storeName');
 
@@ -74,12 +61,6 @@ class ShopController extends Controller
         $shop = Shop::find($id);
         // dd($products);
         $shopCategories = $shop->shopCategory;
-        // dd($categories);
-
-        // $shopCategories = ShopCategory::where('shop_categories.id','=',$categories)->get();
-        // dd($shopCategories);
-        // $products = Product::all()->where('products.shop_id','=',$id);
-        // dd($products);
 
 
         return view('user.shops.show', compact('shop','shopCategories'));

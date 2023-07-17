@@ -25,25 +25,23 @@ use App\Http\Controllers\User\LikeController;
 //     return view('user.welcome');
 // });
 
+Route::get('/items', [ItemController::class,'index'])->name('items.index');
+Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
 Route::middleware('auth:users')->group(function(){
-        Route::get('/items', [ItemController::class,'index'])->name('items.index');
-        Route::get('/items/show/{item}',[ItemController::class, 'show'])->name('items.show');
-        Route::get('/items/favorite',[ItemController::class, 'favorite'])->name('items.favorite');
-        // Route::post('/items/show',[LikeController::class, 'show'])->name('items.show');
-        // Route::post('/items/like',[LikeController::class, 'like'])->name('items.like');
-        Route::post('/favorite', [LikeController::class,'toggleFavorite'])->name('favorite.toggle');
+    Route::get('/items/favorite',[ItemController::class, 'favorite'])->name('items.favorite');
+    Route::post('/favorite', [LikeController::class,'toggleFavorite'])->name('favorite.toggle');
 
-
-    });
+});
 
 Route::prefix('cart')->middleware('auth:users')->group(function(){
-        Route::get('/', [CartController::class,'index'])->name('cart.index');
-        Route::post('add', [CartController::class,'add'])->name('cart.add');
-        Route::post('delete/{item}', [CartController::class,'delete'])->name('cart.delete');
-        Route::get('checkout', [CartController::class,'checkout'])->name('cart.checkout');
-        Route::get('success', [CartController::class,'success'])->name('cart.success');
-        Route::get('cancel', [CartController::class,'cancel'])->name('cart.cancel');
+    Route::get('/', [CartController::class,'index'])->name('cart.index');
+    Route::post('add', [CartController::class,'add'])->name('cart.add');
+    Route::post('delete/{item}', [CartController::class,'delete'])->name('cart.delete');
+    Route::get('checkout', [CartController::class,'checkout'])->name('cart.checkout');
+    Route::get('success', [CartController::class,'success'])->name('cart.success');
+    Route::get('cancel', [CartController::class,'cancel'])->name('cart.cancel');
 });
+
 Route::resource('questions', ThreadController::class);
 Route::post('/questions/search', [ThreadController::class, 'search'])->name('questions.search');
 Route::post('questions/delete/{thread}', [ThreadController::class,'delete'])->name('questions.delete');
@@ -54,8 +52,8 @@ Route::delete('/comments/delete/{comment}', [CommentController::class, 'delete']
 
 Route::resource('shops', ShopController::class);
 
+Route::get('/', [UserController::class,'index'])->name('index');
 Route::middleware('auth:users')->group(function () {
-    Route::get('/', [UserController::class,'index'])->name('index');
     Route::get('profile.edit', [UserController::class, 'edit'])->name('profile.index');
     Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

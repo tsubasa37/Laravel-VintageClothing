@@ -13,12 +13,17 @@ use App\Services\ImageService;
 class UserController extends Controller
 {
     public function index(){
+        $likedProducts = [];
+
         // 新しい順にゲットするように変更
         $products = Product::AvailableItems()->paginate(8);
+        if(Auth::check()){
+            $userId = Auth::user()->id;
+            $likedProducts = Product::AvailableItems()->whereHas('likes', function ($q) use ($userId) {
+                $q->where('likes.user_id', '=', $userId);
+            })->get();
+        }
 
-        $likedProducts = Product::AvailableItems()->whereHas('likes')->get();
-        // dd($likedProducts);
-        // dd($products);
         return view('user.index', compact('products','likedProducts'));
     }
 

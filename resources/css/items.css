@@ -31,5 +31,6 @@
     }
     .items-card img{
         height: 150px;
+        text-align: center;
     }
 }

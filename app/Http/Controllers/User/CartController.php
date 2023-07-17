@@ -45,7 +45,8 @@ class CartController extends Controller
                 'quantity' => $request->quantity,
             ]);
         }
-        return redirect()->route('user.cart.index');
+        return redirect()->route('user.items.cart');
+        // return redirect()->route('user.cart.index');
     }
 
     public function delete($id)

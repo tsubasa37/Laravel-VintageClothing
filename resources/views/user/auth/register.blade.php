@@ -1,4 +1,5 @@
 <x-guest-layout>
+    ユーザー用
     <form method="POST" action="{{ route('user.register') }}">
         @csrf
 
@@ -39,14 +40,13 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('user.login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
+            <x-primary-button class="mt-5 login-btn">
+                登録
             </x-primary-button>
-        </div>
+            @if (Route::has('user.login'))
+                <div class="text-end">
+                    <a href="{{ route('user.login') }}" class="mr-2 font-semibold text-blue-400 hover:text-blue-600 dark:text-blue-400">ログイン</a>
+                </div>
+            @endif
     </form>
 </x-guest-layout>
