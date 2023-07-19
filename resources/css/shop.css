@@ -110,6 +110,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0 40px 50px;
+    width: 100%;
 }
 
 @media screen and (max-width: 390px) {
@@ -122,7 +123,7 @@
     overflow: hidden;
     opacity: 0.6;
     margin-left: 2%;
-    flex: 1;
+
 }
 
 @media screen and (max-width:800px) {
