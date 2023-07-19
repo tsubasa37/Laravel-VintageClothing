@@ -25,97 +25,61 @@
     backface-visibility: hidden;
 }
 
-/* 検索画面 */
+/* 検索画面
 /* index.htmlの検索ボックス */
-.shop__search {
+
+.container {
     display: flex;
-    border:0.1px solid #000;
-    box-shadow: 2px 2px 4px gray ;
-    z-index: 5;
-    width: 28%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* 640 */
+.search__store {
+    display: flex;
+    width: 50%;
     margin: auto;
 }
-@media screen and (max-width:1080px) {
-    .shop__search{
-    margin-left: 2%;
-    width: 85%;
+@media screen and (max-width:640px) {
+    .search__store {
+        width: 70%;
     }
 }
-@media screen and (max-width:390px) {
-    .shop__search{
-    display: block;
-    border:0.1px solid #000;
-    box-shadow: 2px 2px 4px gray ;
-    z-index: 5;
-    margin: 0 auto;
-    margin-top: 50px;
-    width:100%;
-    height:40px;
-    }
-}
-.shop__search ::placeholder {
-    text-align: center;
-    color: rgb(156, 152, 152);
-}
-@media screen and (max-width:390px) {
-    .shop__search ::placeholder {
-    font-size: 15px;
+@media screen and (max-width:450px) {
+    .search__store {
+        width: 100%;
     }
 }
 
-.shop__search input {
-    border: 0;
-    border-right: 0.5px solid #000 ;
-    height: 50px;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    width: 300px;
-}
-@media screen and (max-width:1080px) {
-    .shop__search input {
-    border: 0;
-    border-right: 0.5px solid #000 ;
-    height: 50px;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    width: calc(85vw/2);
-    }
-}
-@media screen and (max-width:390px) {
-    .shop__search__area input{
-    border: 1px solid #000 ;
-    margin-bottom: 2px;
-    }
-    .search__store input{
-    border: 1px solid #000 ;
-    }
-    .shop__search input{
-    width:100%;
-    height: 40px;
-    }
-}
-.search_container input[type="submit"]{
-    cursor: pointer;
-    background: #3879D9;
-    color: #fff;
-    outline : none;
-    width: 100px;
-    height: 50px;
-    font-size: 150%;
-    box-shadow: 2px 2px 4px gray ;
-}
-@media screen and (max-width:390px) {
-    .search_container input[type="submit"]{
+.search input[type=text] {
     width: 100%;
-    height: 40px;
     font-size: 20px;
-    margin-top: 2px;
-    }
+    padding: 0 6px;
+    color: #474747;
+    border: 2px solid #474747;
+    border-radius: 3px 0 0 3px;
+    outline: none;
 }
 
+.search button[type=submit] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FFF;
+    background: #474747;
+    border: 2px solid #474747;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
 
+/* colors */
+.royalblue input[type=text] {
+    border-color: #4169e1;
+}
+
+.royalblue button[type=submit] {
+    border-color: #4169e1;
+    background: #4169e1;
+}
 
 /*スクロールダウン全体の場所*/
 .scrolldown4{

@@ -1,59 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex question_header">
-            <div>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ $shop->name }}
-                </h2>
-            </div>
-        </div>
-    </x-slot>
-
-    <div class="shop-disp">
-        <div class="shop-disp-mobile-image">
-            <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        @if(isset($shop->image1))
-                            <img src="{{ asset('storage/shops/' .  $shop->image1 )}}">
-                        @else
-                            <img src="/images/Noimage2.png ">
-                        @endif
-                    </div>
-                    <div class="swiper-slide">
-                        @if(isset($shop->image2))
-                        <img src="{{ asset('storage/shops/' .  $shop->image2 )}}">
-                        @else
-                            <img src="/images/Noimage2.png ">
-                        @endif
-                    </div>
-                    <div class="swiper-slide">
-                        @if(isset($product->image3))
-                        <img src="{{ asset('storage/shops/' .  $shop->image3 )}}">
-                        @else
-                            <img src="/images/Noimage2.png ">
-                        @endif
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
-            </div>
-        </div>
-
-        <div class="shop-detail">
+        <div class="question_header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ $shop->name }}
+            </h2>
             <div class="shop-station-category">
-                <p>最寄り駅<br>
-                    <span>{{ $shop->station }}</span>
-                </p>
                 <p>ジャンル<br>
                     @foreach ($shopCategories as $shopCategory)
                         <span class="border p-1">{{ $shopCategory->name }}</span>
@@ -61,6 +12,9 @@
                 </p>
             </div>
         </div>
+    </x-slot>
+
+    <div class="shop-disp">
 
         <div class="shop-detail-img">
             <div class="swiper">
@@ -68,22 +22,22 @@
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide">
-                        @if(isset($shop->image1))
-                            <img src="{{ asset('storage/shops/' .  $shop->image1 )}}">
+                        @if (isset($shop->image1))
+                            <img src="{{ asset('storage/shops/' . $shop->image1) }}">
                         @else
                             <img src="/images/Noimage2.png ">
                         @endif
                     </div>
                     <div class="swiper-slide">
-                        @if(isset($shop->image2))
-                        <img src="{{ asset('storage/shops/' .  $shop->image2 )}}">
+                        @if (isset($shop->image2))
+                            <img src="{{ asset('storage/shops/' . $shop->image2) }}">
                         @else
                             <img src="/images/Noimage2.png ">
                         @endif
                     </div>
                     <div class="swiper-slide">
-                        @if(isset($shop->image3))
-                        <img src="{{ asset('storage/shops/' .  $shop->image3 )}}">
+                        @if (isset($shop->image3))
+                            <img src="{{ asset('storage/shops/' . $shop->image3) }}">
                         @else
                             <img src="/images/Noimage2.png ">
                         @endif
@@ -158,28 +112,32 @@
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100">
                             <div class="flex flex-wrap">
-                                @if( count($shop->product) > 0 )
+                                @if (count($shop->product) > 0)
                                     @foreach ($shop->product as $product)
                                         <div class="w-1/4 p-2  md:p-4">
-                                            <a href="{{ route('user.items.show',['item' => $product->id]) }}">
+                                            <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                                 <div class="border rounded-md p-2 md:p-4">
-                                                    <x-thumbnail filename="{{$product->image1 ?? ''}}" type="products" />
-                                                        <div class="text-gray-700 pt-2">
-                                                            {{-- {{ $product->name}} --}}
-                                                        </div>
-                                                        <div class="mt-4">
-                                                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"></h3>
-                                                            <h2 class="text-gray-900 title-font text-lg font-medium"></h2>
-                                                            <p class="mt-1"><span class="text-sm text-gray-700">円(税込)</span></p>
-                                                        </div>
+                                                    <x-thumbnail filename="{{ $product->image1 ?? '' }}"
+                                                        type="products" />
+                                                    <div class="text-gray-700 pt-2">
+                                                        {{-- {{ $product->name}} --}}
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        <h3
+                                                            class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                                                        </h3>
+                                                        <h2 class="text-gray-900 title-font text-lg font-medium"></h2>
+                                                        <p class="mt-1"><span
+                                                                class="text-sm text-gray-700">円(税込)</span></p>
+                                                    </div>
                                                 </div>
                                             </a>
                                         </div>
                                     @endforeach
                                 @else
-                                <div class="shop-disp-noItems">
-                                    <p>商品がありません</p>
-                                </div>
+                                    <div class="shop-disp-noItems">
+                                        <p>商品がありません</p>
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -190,4 +148,15 @@
     </div>
     @vite(['resources/js/swiper.js'])
     @vite(['resources/js/tab.js'])
+    <script>
+        const slideContainers = document.querySelectorAll('.swiper-slide');
+
+        // Loop through each container and check if the image is not available (contains "Noimage2.png")
+        slideContainers.forEach((container) => {
+            const image = container.querySelector('img');
+            if (image && image.getAttribute('src').includes('Noimage2.png')) {
+                container.remove();
+            }
+        });
+    </script>
 </x-app-layout>

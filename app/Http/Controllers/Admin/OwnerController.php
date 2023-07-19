@@ -60,9 +60,9 @@ class OwnerController extends Controller
                     'owner_id' => $owner->id,
                     'name' => '',
                     'information' => '',
-                    'image1' => '',
-                    'image2' => '',
-                    'image3' => '',
+                    'image1' => NULL,
+                    'image2' => NULL,
+                    'image3' => NULL,
                     'phone' => '',
                     'prefecture' => '',
                     'City' => '',
@@ -139,11 +139,11 @@ class OwnerController extends Controller
 
     // 期限切れオーナー
     public function expiredOwnerIndex(){
-        $expiredOwners = Owner::onlyTrashed()->get();
-        return view('admin.expired-owners',compact('expiredOwners'));
-        }
-        public function expiredOwnerDestroy($id){
-            Owner::onlyTrashed()->findOrFail($id)->forceDelete();
-            return redirect()->route('admin.expired-owners.index');
-        }
+    $expiredOwners = Owner::onlyTrashed()->get();
+    return view('admin.expired-owners',compact('expiredOwners'));
+    }
+    public function expiredOwnerDestroy($id){
+        Owner::onlyTrashed()->findOrFail($id)->forceDelete();
+        return redirect()->route('admin.expired-owners.index');
+    }
 }

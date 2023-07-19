@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('selection_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('shop_id')->constrained();
+            $table->foreignId('shop_id')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->foreignId('shop_category_id')->constrained();
             $table->timestamps();
         });

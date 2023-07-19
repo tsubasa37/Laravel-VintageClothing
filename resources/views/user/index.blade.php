@@ -29,7 +29,7 @@
 
     <div class="search ">
         <form action="{{ route('user.shops.index') }}" method="get" class="search">
-            <div class="shop__search">
+            {{-- <div class="shop__search">
                 <div class="flex search__store">
                     <input name="storeName" type="text" placeholder="店舗名">
                 </div>
@@ -37,7 +37,15 @@
                     <input type="submit" value="検索">
                     <input type="hidden" name="type" value="search">
                 </div>
+            </div> --}}
+            <div class="container ">
+                <div class="search__store royalblue">
+                    <input type="text" name="storeName" placeholder="店舗名">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input type="hidden" name="type" value="search">
+                </div>
             </div>
+
             <x-prefectures-list />
         </form>
     </div>

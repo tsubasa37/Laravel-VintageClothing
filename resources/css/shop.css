@@ -1,3 +1,8 @@
+.question_header h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .shop-link-btn {
     justify-content: center;
 }
@@ -154,63 +159,31 @@
 .shop-disp {
     background-color: #fff;
 }
-.shop-detail{
-    width: 100%;
-    /* height: 150px; */
-    /* margin-top:50px; */
-    margin-bottom: 20px;
-    border-bottom: 1.5px solid rgba(189, 164, 131, 0.329);
+.shop-station-category {
+    width: calc(100% - 40%);
+    margin: 0 auto;
 }
-@media screen and (max-width:390px) {
-    .shop-detail{
-    width: 100%;
-    height: 100px;
-    display: none;
-
+@media screen and (max-width:450px) {
+    .shop-station-category {
+        width: 100%;
+        margin: 0;
     }
-}
-.shop-detail-name h1{
-    /* margin-top: 100px; */
-    margin-left: 200px;
-    font-weight: bold;
-}
-@media screen and (max-width:1000px) {
-    .shop-detail-name h1{
-    margin-top: 50px;
-    margin-left: 10%;
-    font-weight: bold;
-    font-size: 20px;
-    }
-}
-@media screen and (max-width:390px) {
-    .shop-detail-name h1{
-    margin-top: 50px;
-    margin-left: 5px;
-    font-weight: bold;
-    font-size: 20px;
-    }
-}
-
-.shop-station-category{
-    padding-left: 200px;
 }
 
 .shop-station-category p{
-    /* padding-right: 300px; */
     padding-bottom: 20px;
+
 }
 .shop-station-category span{
     font-size: 15px;
+
 }
 
 @media screen and (max-width:1000px) {
     .shop-station-category{
-    padding-left: 10%;
     padding-top: 30px;
     }
-    .shop-station-category p{
-    padding-right: 300px;
-    }
+
     .shop-station-category span{
     font-size: 15px;
     }
@@ -218,36 +191,15 @@
 }
 @media screen and (max-width:390px) {
     .shop-station-category{
-    padding-left: 10px;
+    padding-left: 0;
     padding-top: 30px;
     }
     .shop-station-category p{
     padding-right: 0px;
     }
-    .shop-station-category p:first-child{
-    padding-right: 150px;
-    }
-    .shop-detail-img {
-    display: none;
-    }
+
 }
 
-/* モバイルスライド画像 */
-.shop-disp-mobile-image {
-    display: none;
-}
-
-@media screen and (max-width:390px) {
-    .shop-disp-mobile-image {
-    display: block;
-    }
-    .shop-disp-img-swiper{
-    position:relative;
-    z-index: 1;
-    /*↑z-indexの値をh1のz-indexの値よりも小さくして背景に回す*/
-    margin-top: 100px;
-    }
-}
 
 /*戻る、次へ矢印の位置*/
 .slick-prev,
@@ -310,20 +262,12 @@
     width: 100%;
     height: 500px;
 }
-
-
-.shop-information h3 {
-    margin-left: 20%;
-    font-size: 30px;
-    font-weight: 500;
-    padding-top: 20px;
-    /* width: min(100% - 2rem, 60% ); */
-    /* margin: auto; */
-}
-@media screen and (max-width:390px) {
-    .shop-information h3 {
-    margin-left: 5px;
-    font-size: 20px;
+@media screen and (max-width:420px) {
+    .shop-detail-img{
+        width: 100%;
+    }
+    .shop-detail-img img {
+        height: 300px;
     }
 }
 
@@ -338,7 +282,7 @@
     margin-bottom: 40px;
 }
 
-@media screen and (max-width:390px) {
+@media screen and (max-width:420px) {
     .pr-comment {
     width: 95%;
     margin-left: 10px;
@@ -368,7 +312,7 @@
     width: 60%;
     }
 }
-@media screen and (max-width:390px) {
+@media screen and (max-width:420px) {
     .rst-data-table {
     margin-left: 2%;
     margin-right: 2%;
@@ -441,6 +385,12 @@
     width: min(100% - 2rem, 60%);
     margin: auto;
 }
+@media screen and (max-width:420px) {
+    #tab_menu {
+        width: 100%;
+    }
+}
+
 #tab_menu li{
 	width: 50%;
 	padding: 0;
