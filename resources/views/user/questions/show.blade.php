@@ -99,7 +99,7 @@
                     @endforeach
                     {{ $comments->links() }}
                     @auth
-                        <div class="p-6 comment-area">
+                        <div class="comment-area">
                             <form action="{{ route('user.comment.store') }}" method="POST">
                                 @csrf
                                 <div class="mt-4 p-2 mx-auto">

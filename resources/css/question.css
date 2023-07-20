@@ -8,21 +8,35 @@
 .comment-area{
     margin-left: 20%;
 }
+
+@media screen and (max-width:450px) {
+    .comment-area{
+        margin-left: 0;
+    }
+}
+
 .comment-txt {
     width: 70%;
 }
+@media screen and (max-width:450px) {
+    .comment-txt {
+        width: 100%;
+    }
+}
+
 
 .comment-icon img{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    margin: 0 10px;
 }
 
 
 .balloon2-left {
     position: relative;
     display: inline-block;
-    margin: 0 10% 1.5em 5%;
+    margin: 0 30% 1.5em 5%;
     padding: 7px 10px;
     min-width: 120px;
     width: 90%;
@@ -35,10 +49,17 @@
     box-sizing: border-box;
 }
 
+
+@media screen and (max-width:450px) {
+    .balloon2-left {
+        margin: 0 5% 1.5em 10%;
+    }
+}
+
 .balloon2-right {
     position: relative;
     display: inline-block;
-    margin: 0 5% 1.5em 10%;
+    margin: 0 5% 1.5em 30%;
     padding: 7px 10px;
     min-width: 120px;
     width: 90%;
@@ -49,6 +70,12 @@
     background: #FFF;
     border: solid 1px #9b9b9bc7;
     box-sizing: border-box;
+}
+
+@media screen and (max-width:450px) {
+    .balloon2-right {
+        margin: 0 5% 1.5em 10%;
+    }
 }
 
 .balloon2-left:before {
@@ -116,10 +143,9 @@
     display: inline-block;
     text-decoration: none;
 }
-@media screen and (max-width:390px) {
+@media screen and (max-width:450px) {
     .back-to-top {
-    right: -1%;
-    bottom: -1%;
+        display: none;
     }
 }
 
@@ -176,18 +202,25 @@
     overflow: hidden;
     border: 2px solid #2589d0;
     border-radius: 25px;
+    height: 50px;
 }
+
 
 .search-form-002 input {
     width: 250px;
-    height: 45px;
+    height: 40px;
     padding: 5px 15px;
     border: none;
     box-sizing: border-box;
     font-size: 1em;
     outline: none;
 }
+@media screen and (max-width:640px) {
+    .search-form-002 input {
+        width: 200px;
 
+    }
+}
 .search-form-002 input::placeholder{
     color: #767d83;
 }
@@ -197,10 +230,15 @@
     justify-content: center;
     align-items: center;
     width: 50px;
-    height: 45px;
+    height: 52px;
     border: none;
     background-color: #2589d0;
     cursor: pointer;
+}
+@media screen and (max-width:640px) {
+    .search-form-002 button {
+        width: 45px;
+    }
 }
 
 .search-form-002 button::after {
