@@ -78,6 +78,7 @@
         {{ $threads->links() }}
     </div>
 </div>
+
 @vite(['resources/js/flash-message.js'])
 
     <script>

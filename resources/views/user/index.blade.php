@@ -27,6 +27,7 @@
     </div>
     <!-- 検索ボックス -->
 
+
     <div class="search ">
         <form action="{{ route('user.shops.index') }}" method="get" class="search">
             {{-- <div class="shop__search">
@@ -49,7 +50,6 @@
             <x-prefectures-list />
         </form>
     </div>
-
     @auth
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -154,6 +154,10 @@
     @vite(['resources/js/image.js'])
     @vite(['resources/js/productSwiper.js'])
     @vite(['resources/js/prefectureModal.js'])
+
+    <script>
+
+    </script>
 
 
 </x-app-layout>

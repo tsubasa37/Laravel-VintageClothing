@@ -80,11 +80,7 @@
                                             @auth
                                                 <button class="favorite-button mt-2 "
                                                     data-product-id="{{ $product->id }}">
-                                                    @if ($product->isLikedBy(Auth::user()))
-                                                        <i class="fas fa-heart liked"></i>
-                                                    @else
-                                                        <i class="far fa-heart"></i>
-                                                    @endif
+                                                    <like :id="{{ $product->id  }}"></like>
                                                 </button>
                                             @endauth
                                             @guest
@@ -100,15 +96,16 @@
                         @endif
                     </div>
                 </div>
-                        {{ $products->appends([
-                                'sort' => \Request::get('sort'),
-                                'pagination' => \Request::get('pagination'),
-                            ])->links() }}
+                {{ $products->appends([
+                        'sort' => \Request::get('sort'),
+                        'pagination' => \Request::get('pagination'),
+                    ])->links() }}
             </div>
         </div>
     </div>
 
     @vite(['resources/js/like.js'])
+
 
     <script>
         const select = document.getElementById('sort');

@@ -33,7 +33,7 @@
                                             @if(isset($product->image3))
                                             <img src="{{ asset('storage/products/' .  $product->image3 )}}">
                                             @else
-                                                <img src="/images/Noimage2.png ">
+                                                <img src="/images/Noimage2.png " onerror="this.style.display='none'">
                                             @endif
                                         </div>
                                     </div>
