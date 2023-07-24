@@ -81,22 +81,20 @@
                     },
                     methods: {
                         setLike(event) {
-                        if (event) {
-                            event.preventDefault();
-                        }
-
-                        const productId = this.id;
-                        const isLiked = this.isLiked();
-
-                        axios.post('/favorite', { product_id: productId })
+                            if (event) {
+                                event.preventDefault();
+                            }
+                            const productId = this.id;
+                            const isLiked = this.isLiked();
+                            axios.post('/favorite', { product_id: productId })
                             .then(response => {
-                            const responseData = response.data;
-                            this.likes = responseData.likes;
-                            this.className = responseData.is_liked ? 'liked' : 'unLike';
-                            localStorage.setItem('likes', JSON.stringify(this.likes));
+                                const responseData = response.data;
+                                this.likes = responseData.likes;
+                                this.className = responseData.is_liked ? 'liked' : 'unLike';
+                                localStorage.setItem('likes', JSON.stringify(this.likes));
                             })
                             .catch(error => {
-                            console.error('Error:', error);
+                                console.error('Error:', error);
                             });
                         }
                     }
