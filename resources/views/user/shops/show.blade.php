@@ -148,15 +148,6 @@
     </div>
     @vite(['resources/js/swiper.js'])
     @vite(['resources/js/tab.js'])
-    <script>
-        const slideContainers = document.querySelectorAll('.swiper-slide');
+    @vite(['resources/js/Noimage.js'])
 
-        // Loop through each container and check if the image is not available (contains "Noimage2.png")
-        slideContainers.forEach((container) => {
-            const image = container.querySelector('img');
-            if (image && image.getAttribute('src').includes('Noimage2.png')) {
-                container.remove();
-            }
-        });
-    </script>
 </x-app-layout>

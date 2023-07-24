@@ -33,7 +33,7 @@
                                             @if(isset($product->image3))
                                             <img src="{{ asset('storage/products/' .  $product->image3 )}}">
                                             @else
-                                                <img src="/images/Noimage2.png " onerror="this.style.display='none'">
+                                                <img src="/images/Noimage2.png ">
                                             @endif
                                         </div>
                                     </div>
@@ -92,5 +92,6 @@
 
     {{-- <script src="./js/swiper.js"></script> --}}
     @vite(['resources/js/swiper.js'])
+    @vite(['resources/js/Noimage.js'])
 
 </x-app-layout>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -36,13 +37,6 @@ Route::resource('owners', OwnerController::class)
 Route::resource('users', UserController::class)
 ->middleware('auth:admin', 'verified')->except(['show']);
 
-
-// Route::get('/dashboard',DashboardController::class)
-// ->middleware(['auth:admin', 'verified'])->name('dashboard');
-
-// Route::get('/dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware(['auth:admin', 'verified'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::prefix('expired-owners')->
@@ -56,12 +50,12 @@ Route::prefix('expired-users')->
         Route::post('destroy/{user}',[UserController::class, 'expiredUserDestroy'])->name('expired-users.destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware('auth:admin')->group(function () {
+    Route::get('profile.edit', [AdminController::class, 'edit'])->name('profile.index');
+    Route::post('profile.update/{admin}', [AdminController::class, 'update'])->name('profile.update');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 
 Route::middleware('guest')->group(function () {

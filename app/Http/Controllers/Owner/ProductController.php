@@ -52,11 +52,6 @@ class ProductController extends Controller
     {
         $shops = Shop::where('owner_id', Auth::id())->select('id', 'name')->get();
 
-        // $images = Image::where('owner_id', Auth::id())
-        // ->select('id','title','filename')
-        // ->orderby('updated_at', 'desc')
-        // ->get();
-
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
@@ -71,30 +66,26 @@ class ProductController extends Controller
     {
         try{
             DB::transaction(function () use($request) {
-            // dd( $request->image2 );
             $imageFile1 = $request->image1; //一時保存
             $imageFile2 = $request->image2; //一時保存
             $imageFile3 = $request->image3; //一時保存
 
             if(!is_null($imageFile1)  && $imageFile1->isValid()){
-                //   Storage::delete('public/shops/'.$shop->image1);
                 $image1 = shopImageService::upload1($imageFile1, 'products');
             }else{
-                $image1 = '';
+                $image1 = NULL;
             }
 
             if(!is_null($imageFile2)  && $imageFile1->isValid()){
-                //   Storage::delete('public/shops/'.$shop->image2);
                 $image2 = shopImageService::upload2($imageFile2, 'products');
             }else{
-                $image2 = '';
+                $image2 = NULL;
             }
 
             if(!is_null($imageFile3)  && $imageFile1->isValid()){
-                //   Storage::delete('public/shops/'.$shop->image3);
                 $image3 = shopImageService::upload3($imageFile3, 'products');
             }else {
-                $image3 = '';
+                $image3 = NULL;
             }
 
                 $product = Product::create([

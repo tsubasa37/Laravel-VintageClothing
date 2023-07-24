@@ -65,17 +65,18 @@
                                 <x-dropdown-link :href="route('user.items.favorite')">
                                     お気に入り
                                 </x-dropdown-link>
-
-                                <!-- Authentication -->
-                                <form method="POST" action="{{ route('user.logout') }}">
-                                    @csrf
-                                    <x-dropdown-link :href="route('user.logout')"
-                                        onclick="event.preventDefault();
-                                                        this.closest('form').submit();"
-                                        class="text-red-400">
-                                        ログアウト
-                                    </x-dropdown-link>
-                                </form>
+                                @auth
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('user.logout') }}">
+                                        @csrf
+                                        <x-dropdown-link :href="route('user.logout')"
+                                            onclick="event.preventDefault();
+                                                            this.closest('form').submit();"
+                                            class="text-red-400">
+                                            ログアウト
+                                        </x-dropdown-link>
+                                    </form>
+                                @endauth
                             </main>
                             <footer class="modal__footer">
                                 <button type="button" class="modal__btn" data-micromodal-close
@@ -146,16 +147,17 @@
             </x-dropdown-link>
 
             <!-- Authentication -->
-            <form method="POST" action="{{ route('user.logout') }}">
-                @csrf
-
-                <x-dropdown-link :href="route('user.logout')"
-                    onclick="event.preventDefault();
-                                    this.closest('form').submit();"
-                    class="text-red-400">
-                    ログアウト
-                </x-dropdown-link>
-            </form>
+            @auth
+                <form method="POST" action="{{ route('user.logout') }}">
+                    @csrf
+                    <x-dropdown-link :href="route('user.logout')"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();"
+                        class="text-red-400">
+                        ログアウト
+                    </x-dropdown-link>
+                </form>
+            @endauth
         </div>
     </div>
 </nav>

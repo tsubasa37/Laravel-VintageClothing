@@ -9,6 +9,15 @@
     margin-left: 20%;
 }
 
+.thread-create{
+    width:calc(100% - 40%);
+    margin: 0 auto;
+}
+@media screen and (max-width:800px) {
+    .thread-create{
+        width: 100%;
+    }
+}
 @media screen and (max-width:450px) {
     .comment-area{
         margin-left: 0;

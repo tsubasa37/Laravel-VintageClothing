@@ -10,7 +10,17 @@
 .shop-link-btn:hover {
     color: rgb(74, 147, 237);
 }
+.edit-area {
+    width:calc(100% - 40%);
+    margin: 0 auto;
+}
 
+@media screen and (max-width: 850px) {
+.edit-area {
+    width: 100%;
+    margin: 0 auto;
+}
+}
 .wrapper {
     display: block;
     max-width: 1200px;

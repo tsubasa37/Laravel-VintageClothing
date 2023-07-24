@@ -65,14 +65,7 @@
                                                 <a href="{{ route('user.items.show', ['item' => $likedProduct->id]) }}">
                                                     <x-thumbnail filename="{{ $likedProduct->filename ?? '' }}"
                                                         type="products" />
-                                                    <div class="text-gray-700 pt-2">
-                                                        {{ $likedProduct->name }}
-                                                    </div>
                                                     <div class="mt-4">
-                                                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                                                            {{ $likedProduct->category }}</h3>
-                                                        <h2 class="text-gray-900 title-font text-lg font-medium">
-                                                            {{ $likedProduct->name }}</h2>
                                                         <p class="mt-1">￥{{ number_format($likedProduct->price) }}</p>
                                                     </div>
                                                 </a>
@@ -120,14 +113,7 @@
                                             <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                                 <x-thumbnail filename="{{ $product->filename ?? '' }}"
                                                     type="products" />
-                                                <div class="text-gray-700 pt-2">
-                                                    {{ $product->name }}
-                                                </div>
                                                 <div class="mt-4">
-                                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                                                        {{ $product->category }}</h3>
-                                                    <h2 class="text-gray-900 title-font text-lg font-medium">
-                                                        {{ $product->name }}</h2>
                                                     <p class="mt-1">￥{{ number_format($product->price) }}</p>
                                                 </div>
                                             </a>

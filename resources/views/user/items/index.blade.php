@@ -69,10 +69,7 @@
                                     <div class="border rounded-md p-2 md:p-4">
                                         <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                             <x-thumbnail filename="{{ $product->filename ?? '' }}" type="products" />
-                                            <div class="text-gray-700 pt-2">
-                                                {{ $product->name }}
-                                            </div>
-                                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                                            <h3 class="text-gray-500 text-xs mt-2 tracking-widest title-font mb-1">
                                                 {{ $product->category }}</h3>
                                         </a>
                                         <div class="flex items-icon">

@@ -1,18 +1,13 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('owner.shops.update',['shop' => $shop->id]) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('owner.shops.update',['shop' => $shop->id]) }}" class="edit-area" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="-m-2">
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2 mx-auto">
                                 <div class="relative">
                                     <label for="name" class="leading-7 text-sm text-gray-600">店名※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="name" name="name" value="{{old('name', $shop->name)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -42,10 +37,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto text-end">
+                            <div class="p-2 text-end">
                                 <a class="text-white bg-blue-500 border-0 py-2 px-2 focus:outline-none hover:bg-blue-600 rounded" data-micromodal-trigger="modal-1" href='javascript:;'>タグの使用方法</a>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto" id="edit">
+                            <div class="p-2" id="edit">
                                 <div class="relative">
                                     <label for="information" class="leading-7 text-sm text-gray-600">店舗情報※<span class="text-red-600">必須</span></label>
                                     <div class="tag">
@@ -66,7 +61,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <div class="flex">
                                         <div class="m-2">
@@ -81,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="image" class="leading-7 text-sm text-gray-600">画像</label>
                                     <div>
@@ -95,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-2 m-10 w-1/2 mx-auto">
+                            <div class="p-2 m-10">
                                 <label class="block text-sm font-medium mb-2">店舗カテゴリー</label>
                                 <select id="js-pulldown" class="w-full" name="shopCategories[]" multiple="multiple">
                                     @foreach ($shopCategories as $shopCategory)
@@ -103,13 +98,13 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="station" class="leading-7 text-sm text-gray-600">最寄り駅</label>
                                     <input type="text" id="station" name="station"  value="{{old('station',$shop->station)}}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="phone" class="leading-7 text-sm text-gray-600">TEL※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="phone" name="phone" required value="{{old('phone',$shop->phone)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -118,7 +113,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <label for="name" class="leading-7 text-sm text-gray-600">住所※<span class="text-red-600">必須</span></label>
                                 <div class="relative">
                                     <label for="prefecture" class="leading-7 text-sm text-gray-600">都道府県</label>
@@ -128,7 +123,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="City" class="leading-7 text-sm text-gray-600">市・区・郡</label>
                                     <input type="text" id="City" name="City" required value="{{old('City', $shop->City)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -137,7 +132,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="address" class="leading-7 text-sm text-gray-600">町域・番地・建物名など</label>
                                         <input type="text" id="address" required  name="address" value="{{old('address', $shop->address)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -146,7 +141,7 @@
                                         @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="businessHours" class="leading-7 text-sm text-gray-600">営業時間※<span class="text-red-600">必須</span></label>
                                     <input type="text" id="businessHours" required name="businessHours" value="{{old('businessHours',$shop->businessHours)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -155,42 +150,42 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="regularHoliday" class="leading-7 text-sm text-gray-600">定休日</label>
                                     <input type="text" id="regularHoliday" name="regularHoliday" value="{{old('regularHoliday', $shop->regularHoliday)}}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="home_page" class="leading-7 text-sm text-gray-600">ホームページ</label>
                                     <input type="url" id="home_page" name="home_page" value="{{old('home_page',$shop->home_page)}}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="twitter" class="leading-7 text-sm text-gray-600">twitter</label>
                                     <input type="url" id="twitter" name="twitter" value="{{old('twitter', $shop->twitter)}}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="Instagram" class="leading-7 text-sm text-gray-600">Instagram</label>
                                     <input type="url" id="Instagram" name="Instagram" value="{{old('Instagram', $shop->Instagram)}}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative">
                                     <label for="Facebook" class="leading-7 text-sm text-gray-600">Facebook</label>
                                     <input type="url" id="Facebook" name="Facebook" value="{{old('Facebook', $shop->Facebook)}}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
 
                                 </div>
                             </div>
-                            <div class="p-2 w-1/2 mx-auto">
+                            <div class="p-2">
                                 <div class="relative flex justify-around">
                                     <div>
                                         <input type="radio" name="is_selling" value="1" class="mr-2" @if($shop->is_selling === 1){ checked } @endif >販売中

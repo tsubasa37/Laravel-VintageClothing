@@ -36,7 +36,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('owner.profile.edit')">
+                        <x-dropdown-link :href="route('owner.profile.index')">
                             マイページ
                         </x-dropdown-link>
 
@@ -87,7 +87,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('owner.profile.edit')">
+                <x-responsive-nav-link :href="route('owner.profile.index')">
                     マイページ
                 </x-responsive-nav-link>
 

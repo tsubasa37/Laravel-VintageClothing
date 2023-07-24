@@ -15,6 +15,7 @@ use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ImageController;
 use App\Http\Controllers\Owner\ProductController;
+use App\Http\Controllers\Owner\OwnerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,15 +46,22 @@ Route::resource('products', ProductController::class)
 ->middleware('auth:owners', 'verified')->except(['show']);
 
 
+Route::middleware('auth:owners')->group(function () {
+    Route::get('profile.edit', [OwnerController::class, 'edit'])->name('profile.index');
+    Route::post('profile.update/{owner}', [OwnerController::class, 'update'])->name('profile.update');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 
