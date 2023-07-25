@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            カート
+            ショッピングカート
         </h2>
     </x-slot>
 
@@ -43,7 +43,10 @@
                             <button onclick="location.href='{{ route('user.cart.checkout')}}'" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">購入する</button>
                         </div>
                     @else
-                    カートに商品が入っていません。
+                        <div class="cart-not-in">
+                            <p>現在カートに商品が入っていません</p>
+                            <a href="{{ route('user.items.index') }}" class="btn btn--orange btn--border-solid">商品一覧へ</a>
+                        </div>
                     @endif
                 </div>
             </div>

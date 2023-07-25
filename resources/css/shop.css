@@ -207,9 +207,20 @@
     .shop-station-category p{
     padding-right: 0px;
     }
-
 }
 
+.shop-disp-product {
+    width: 25%;
+}
+@media screen and (max-width:450px) {
+    .shop-disp-product {
+        width: 50%;
+    }
+}
+
+.product-disp-btn {
+    margin-left: 90%;
+}
 
 /*戻る、次へ矢印の位置*/
 .slick-prev,
@@ -449,4 +460,20 @@
 .shop-disp-noItems p {
     font-size: 17px;
     margin: 20px 0  50px 30px;
+}
+
+
+/* カート内*/
+a.btn--orange.btn--border-solid {
+    background-color: rgb(74, 175, 243);
+    width: 150px;
+    height: 50px;
+    padding-top: 12px;
+    margin-top: 60px;
+    color: white;
+}
+
+.cart-not-in {
+    text-align: center;
+    margin: 80px;
 }

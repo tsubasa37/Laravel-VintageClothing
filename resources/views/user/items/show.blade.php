@@ -39,11 +39,9 @@
                                     </div>
                                     <!-- If we need pagination -->
                                     <div class="swiper-pagination"></div>
-
                                     <!-- If we need navigation buttons -->
                                     <div class="swiper-button-prev"></div>
                                     <div class="swiper-button-next"></div>
-
                                     <!-- If we need scrollbar -->
                                     <div class="swiper-scrollbar"></div>
                                 </div>
@@ -57,6 +55,9 @@
                                         <p>{{ $product->shop->name }}</p>
                                     </div>
                                 </a>
+                                @auth
+                                    <button class="favorite-button mt-2 product-disp-btn" data-product-id="{{ $product->id }}"> <like :id="{{ $product->id  }}"></like></button>
+                                @endauth
                                 <h2 class="text-sm title-font text-gray-500 tracking-widest">{{ $product->category->name }}</h2>
                                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $product ->name }}</h1>
                                 <p class="leading-relaxed">{{ $product->information }}</p>

@@ -114,21 +114,15 @@
                             <div class="flex flex-wrap">
                                 @if (count($shop->product) > 0)
                                     @foreach ($shop->product as $product)
-                                        <div class="w-1/4 p-2  md:p-4">
+                                        <div class=" p-2  md:p-4 shop-disp-product">
                                             <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                                 <div class="border rounded-md p-2 md:p-4">
-                                                    <x-thumbnail filename="{{ $product->image1 ?? '' }}"
-                                                        type="products" />
+                                                    <x-thumbnail filename="{{ $product->image1 ?? '' }}" type="products" />
                                                     <div class="text-gray-700 pt-2">
                                                         {{-- {{ $product->name}} --}}
                                                     </div>
                                                     <div class="mt-4">
-                                                        <h3
-                                                            class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                                                        </h3>
-                                                        <h2 class="text-gray-900 title-font text-lg font-medium"></h2>
-                                                        <p class="mt-1"><span
-                                                                class="text-sm text-gray-700">円(税込)</span></p>
+                                                        <p class="mt-1">￥{{ number_format($product->price) }}</p>
                                                     </div>
                                                 </div>
                                             </a>

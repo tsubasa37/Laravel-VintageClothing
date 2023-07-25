@@ -1,7 +1,7 @@
 <template>
         <!-- いいねアイコンはcssで設定。クラス名によって表示を変更 -->
     <div class="jsLikeButton" :class="className" @click="setLike($event)">
-        <i class="far fa-heart"></i>
+        <i class="fa fa-heart"></i>
     </div>
 </template>
 

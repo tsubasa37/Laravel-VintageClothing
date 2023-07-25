@@ -59,13 +59,18 @@
                                     data-micromodal-close></button>
                             </header>
                             <main class="nav_modal modal__content" id="modal-1-content">
-                                <x-dropdown-link :href="route('user.profile.index')">
-                                    マイページ
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('user.items.favorite')">
-                                    お気に入り
-                                </x-dropdown-link>
+                                @guest
+                                    <x-dropdown-link :href="route('user.login')">
+                                        ログイン
+                                    </x-dropdown-link>
+                                @endguest
                                 @auth
+                                    <x-dropdown-link :href="route('user.profile.index')">
+                                        マイページ
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('user.items.favorite')">
+                                        お気に入り
+                                    </x-dropdown-link>
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('user.logout') }}">
                                         @csrf

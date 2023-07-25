@@ -22,13 +22,13 @@
             <!-- navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-            <div class="scrolldown4"><span>Scroll</span></div>
+            <div class="scrolldown4" id="page-link"><a href="#area-1"><span>Scroll</span></a></div>
         </div>
     </div>
     <!-- 検索ボックス -->
 
 
-    <div class="search ">
+    <div class="search" id="area-1">
         <form action="{{ route('user.shops.index') }}" method="get" class="search">
             {{-- <div class="shop__search">
                 <div class="flex search__store">
@@ -142,7 +142,12 @@
     @vite(['resources/js/prefectureModal.js'])
 
     <script>
-
+        $('#page-link a[href*="#"]').click(function () {
+            var elmHash = $(this).attr('href');
+            var pos = $(elmHash).offset().top-70;
+            $('body,html').animate({scrollTop: pos}, 500);
+            return false;
+        });
     </script>
 
 
