@@ -141,42 +141,42 @@
             <p>中国</p>
             <label>
                 <input type="checkbox" name="prefecture[]" value="鳥取">
-                鳥取県
+                鳥取
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="島根">
-                島根県
+                島根
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="岡山">
-                岡山県
+                岡山
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="広島">
-                広島県
+                広島
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="山口">
-                山口県
+                山口
             </label>
         </li>
         <li class="Shikoku-list">
             <p>四国</p>
             <label>
                 <input type="checkbox" name="prefecture[]" value="徳島">
-                徳島県
+                徳島
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="香川">
-                香川県
+                香川
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="愛媛">
-                愛媛県
+                愛媛
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="高知">
-                高知県
+                高知
             </label>
         </li>
     </ul>
@@ -185,35 +185,35 @@
             <p>九州</p>
             <label>
                 <input type="checkbox" name="prefecture[]" value="福岡">
-                福岡県
+                福岡
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="佐賀">
-                佐賀県
+                佐賀
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="長崎">
-                長崎県
+                長崎
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="熊本">
-                熊本県
+                熊本
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="大分">
-                大分県
+                大分
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="宮崎">
-                宮崎県
+                宮崎
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="鹿児島">
-                鹿児島県
+                鹿児島
             </label>
             <label>
                 <input type="checkbox" name="prefecture[]" value="沖縄">
-                沖縄県
+                沖縄
             </label>
         </li>
     </ul>

@@ -58,7 +58,7 @@ class OwnerController extends Controller
 
                 Shop::create([
                     'owner_id' => $owner->id,
-                    'name' => '',
+                    'name' => '店名を入力してください',
                     'information' => '',
                     'image1' => NULL,
                     'image2' => NULL,
@@ -74,7 +74,7 @@ class OwnerController extends Controller
                     'twitter' => '',
                     'Instagram' => '',
                     'Facebook' => '',
-                    'is_selling' => 0,
+                    'is_selling' => true,
                 ]);
             }, 2);
         }catch(Throwable $e){

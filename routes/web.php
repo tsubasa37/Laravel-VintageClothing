@@ -29,8 +29,6 @@ Route::get('/', [UserController::class,'index'])->name('index');
 Route::middleware('auth:users')->group(function () {
     Route::get('profile.edit', [UserController::class, 'edit'])->name('profile.index');
     Route::post('profile.update/{user}', [UserController::class, 'update'])->name('profile.update');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 

@@ -32,7 +32,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/http-vue-loader"></script>
+
 
         {{-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> --}}
 
@@ -69,37 +69,6 @@
 
             </main>
         </div>
-        <script type="text/javascript">
-            new Vue({
-                    el: '#app',
-                    data() {
-                        return {
-                        };
-                    },
-                    components: {
-                        'like': httpVueLoader('{{ url('components/like.vue') }}'),
-                    },
-                    methods: {
-                        setLike(event) {
-                            if (event) {
-                                event.preventDefault();
-                            }
-                            const productId = this.id;
-                            const isLiked = this.isLiked();
-                            axios.post('/favorite', { product_id: productId })
-                            .then(response => {
-                                const responseData = response.data;
-                                this.likes = responseData.likes;
-                                this.className = responseData.is_liked ? 'liked' : 'unLike';
-                                localStorage.setItem('likes', JSON.stringify(this.likes));
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                            });
-                        }
-                    }
-                });
-        </script>
     </body>
 
 </html>

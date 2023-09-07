@@ -1,5 +1,6 @@
 $(document).on('click', '.favorite-button', function() {
     var productId = $(this).data('product-id');
+    var $icon = $(this).children('svg');
 
     $.ajax({
         headers: {
@@ -7,12 +8,13 @@ $(document).on('click', '.favorite-button', function() {
         },
         url: '/favorite',
         type: 'POST',
+        dataType: 'json',
         data: {
             product_id: productId
         },
-        success: function(response) {
+        success: function(data) {
             // Toggle the favorite button state
-            if (response.success) {
+            if (data) {
                 $icon.toggleClass('liked');
 
                 // Update the icon color immediately
@@ -22,7 +24,7 @@ $(document).on('click', '.favorite-button', function() {
                     $icon.removeClass('fas fa-heart').addClass('far fa-heart');
                 }
             } else {
-                console.log('User not authenticated');
+                console.log('ユーザーが認証されていません');
             }
         },
         error: function(xhr) {

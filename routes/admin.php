@@ -44,6 +44,8 @@ Route::prefix('expired-owners')->
         Route::get('index', [OwnerController::class,'expiredOwnerIndex'])->name('expired-owners.index');
         Route::post('destroy/{owner}',[OwnerController::class, 'expiredOwnerDestroy'])->name('expired-owners.destroy');
 });
+
+
 Route::prefix('expired-users')->
     middleware('auth:admin')->group(function(){
         Route::get('index', [UserController::class,'expiredUserIndex'])->name('expired-users.index');

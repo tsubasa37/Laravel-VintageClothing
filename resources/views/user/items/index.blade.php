@@ -75,9 +75,16 @@
                                         <div class="flex items-icon">
                                             <p class="mt-1">￥{{ number_format($product->price) }}</p>
                                             @auth
-                                                <button class="favorite-button mt-2 "
+                                                {{-- <button class="favorite-button mt-2 "
                                                     data-product-id="{{ $product->id }}">
                                                     <like :id="{{ $product->id  }}"></like>
+                                                </button> --}}
+                                                <button class="favorite-button mt-2" type="button" data-product-id="{{ $product->id }}">
+                                                    @if ($product->isLikedBy(Auth::user()))
+                                                        <i class="fas fa-heart liked"></i>
+                                                    @else
+                                                        <i class="far fa-heart"></i>
+                                                    @endif
                                                 </button>
                                             @endauth
                                             @guest

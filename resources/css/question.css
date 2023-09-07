@@ -8,16 +8,36 @@
 .comment-area{
     margin-left: 20%;
 }
-
+/*
 .thread-create{
-    width:calc(100% - 40%);
+    width:calc(100% - 50%);
     margin: 0 auto;
 }
 @media screen and (max-width:800px) {
     .thread-create{
         width: 100%;
     }
+} */
+
+.review-create-area input, textarea{
+    border: none;
 }
+
+.review-file {
+    background-color: rgb(252, 245, 234);
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-left: 2%;
+}
+.review-file label{
+    color: rgb(143, 100, 44);
+    margin-top: 5px;
+}
+.review-file input[type="file"]{
+    display: none;
+}
+
 @media screen and (max-width:450px) {
     .comment-area{
         margin-left: 0;
@@ -26,6 +46,7 @@
 
 .comment-txt {
     width: 70%;
+    border: 0.5px solid #333;
 }
 @media screen and (max-width:450px) {
     .comment-txt {

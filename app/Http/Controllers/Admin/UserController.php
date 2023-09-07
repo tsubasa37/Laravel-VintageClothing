@@ -90,7 +90,7 @@ class UserController extends Controller
 
         return redirect()
         ->route('admin.users.index')
-        ->with(['message'=>'オーナー情報を更新しました。',
+        ->with(['message'=>'ユーザー情報を更新しました。',
         'status' => 'info']);
     }
 

@@ -40,22 +40,7 @@ class Product extends Model
         return $this->belongsTo(SecondaryCategory::class,'secondary_category_id');
     }
 
-    // public function imageFirst()
-    // {
-    //     return $this->belongsTo(Image::class,'image1','id');
-    // }
-    // public function imageSecond()
-    // {
-    //     return $this->belongsTo(Image::class,'image2','id');
-    // }
-    // public function imageThird()
-    // {
-    //     return $this->belongsTo(Image::class,'image3','id');
-    // }
-    // public function imageFourth()
-    // {
-    //     return $this->belongsTo(Image::class,'image4','id');
-    // }
+
 
     public function stock()
     {
@@ -92,19 +77,19 @@ class Product extends Model
     {
         if($sortOrder === null || $sortOrder === \Constant::SORT_ORDER['recommend']){
             return $query->orderBy('sort_order', 'asc') ;
-            }
-            if($sortOrder === \Constant::SORT_ORDER['higherPrice']){
-            return $query->orderBy('price', 'desc') ;
-            }
-            if($sortOrder === \Constant::SORT_ORDER['lowerPrice']){
-            return $query->orderBy('price', 'asc') ;
-            }
-            if($sortOrder === \Constant::SORT_ORDER['later']){
-            return $query->orderBy('products.created_at', 'desc') ;
-            }
-            if($sortOrder === \Constant::SORT_ORDER['older']){
-            return $query->orderBy('products.created_at', 'asc') ;
-            }
+        }
+        if($sortOrder === \Constant::SORT_ORDER['higherPrice']){
+        return $query->orderBy('price', 'desc') ;
+        }
+        if($sortOrder === \Constant::SORT_ORDER['lowerPrice']){
+        return $query->orderBy('price', 'asc') ;
+        }
+        if($sortOrder === \Constant::SORT_ORDER['later']){
+        return $query->orderBy('products.created_at', 'desc') ;
+        }
+        if($sortOrder === \Constant::SORT_ORDER['older']){
+        return $query->orderBy('products.created_at', 'asc') ;
+        }
     }
 
 
