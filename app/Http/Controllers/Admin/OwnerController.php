@@ -59,7 +59,7 @@ class OwnerController extends Controller
                 Shop::create([
                     'owner_id' => $owner->id,
                     'name' => '店名を入力してください',
-                    'information' => '',
+                    'information' => 'ここにお店の情報が入ります。ここにお店の情報が入ります。ここにお店の情報が入ります。',
                     'image1' => NULL,
                     'image2' => NULL,
                     'image3' => NULL,
